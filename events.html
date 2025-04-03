@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - LOCOBA - Loyola Old Boys Association</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.2/simple-lightbox.min.css">
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-red: #7E272F;
+            --dark-red: #5B1C22;
+            --black: #171719;
+            --dark-gray: #2E2E30;
+            --light-gray: #E6E6E6;
+            --soft-white: #F8F8F8;
+            --white: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--soft-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-red);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+            padding-left: 70px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/300') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Filter & Search Section */
+        .filter-section {
+            background-color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-select {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* Upcoming Events Section */
+        .upcoming-events {
+            padding: 4rem 0;
+            background-color: var(--soft-white);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            height: 200px;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .event-date {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .event-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .event-details {
+            padding: 1.5rem;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-meta {
+            margin-bottom: 1rem;
+        }
+
+        .event-location, .event-time {
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .event-location i, .event-time i {
+            margin-right: 0.5rem;
+            width: 16px;
+        }
+
+        .event-description {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+        }
+
+        /* Past Events Section */
+        .past-events {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery-filter button {
+            padding: 0.5rem 1.5rem;
+            background-color: var(--light-gray);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .gallery-filter button.active, .gallery-filter button:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .gallery-date {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .load-more {
+            display: block;
+            margin: 3rem auto 0;
+            padding: 0.75rem 2rem;
+        }
+
+        /* Calendar Section */
+        .calendar-section {
+            padding: 4rem 0;
+            background-color: var(--soft-white);
+        }
+
+        .calendar-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .calendar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .calendar-nav button {
+            background-color: var(--light-gray);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .calendar-nav button:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--light-gray);
+            padding: 0.5rem;
+        }
+
+        .day-header {
+            text-align: center;
+            font-weight: 600;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .day-number {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .day-event {
+            background-color: var(--primary-red);
+            color: var(--white);
+            font-size: 0.7rem;
+            padding: 0.25rem;
+            margin-top: 0.25rem;
+            border-radius: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-newsletter p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gray);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(7, 1fr);
+            }
+            
+            .day-event {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .filter-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-input, .filter-select, .filter-btn {
+                width: 100%;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .calendar-grid {
+                grid-template-columns: repeat(7, 1fr);
+                font-size: 0.8rem;
+            }
+            
+            .day-event {
+                display: none;
+            }
+            
+            .calendar-day.has-event {
+                background-color: rgba(126, 39, 47, 0.1);
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-grid {
+                display: none;
+            }
+            
+            .calendar-list {
+                display: block;
+            }
+            
+            .calendar-list-item {
+                display: flex;
+                padding: 1rem 0;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .calendar-list-date {
+                flex: 0 0 70px;
+                font-weight: 700;
+            }
+            
+            .calendar-list-events {
+                flex: 1;
+            }
+            
+            .calendar-list-event {
+                margin-bottom: 0.5rem;
+                padding-left: 1rem;
+                border-left: 3px solid var(--primary-red);
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 8px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            z-index: 10;
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .event-info {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            gap: 1.5rem;
+        }
+
+        .event-info-item {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+        }
+
+        .event-info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(126, 39, 47, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-red);
+            margin-right: 1rem;
+        }
+
+        .event-info-text h4 {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .event-info-text p {
+            font-weight: 600;
+        }
+
+        .event-description-full {
+            margin-bottom: 2rem;
+        }
+
+        .event-image-full {
+            width: 100%;
+            height: 300px;
+            background-color: var(--light-gray);
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        .modal-footer {
+            padding: 1rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .share-btn {
+            width: 36px;
+            height: 36px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        /* Calendar List View (Mobile) */
+        .calendar-list {
+            display: none;
+            padding: 1rem 0;
+        }
+
+        /* For the lightbox gallery */
+        .sl-overlay {
+            background-color: var(--black) !important;
+        }
+
+        .sl-wrapper .sl-close {
+            color: var(--white) !important;
+        }
+
+        .sl-wrapper .sl-navigation button {
+            color: var(--white) !important;
+        }
+
+        .sl-wrapper .sl-counter {
+            color: var(--white) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div style="width: 50px; height: 50px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                <div class="logo-text">LOCOBA</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="donations.html">Donations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Events & Gatherings</h1>
+            <p>Join us for memorable experiences and opportunities to reconnect with fellow Loyolans.</p>
+        </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="filter-section">
+        <div class="container">
+            <form class="filter-form" id="eventFilterForm">
+                <input type="text" class="filter-input" placeholder="Search by event name...">
+                
+                <select class="filter-select" id="eventTypeFilter">
+                    <option value="">All Event Types</option>
+                    <option value="reunion">Reunion</option>
+                    <option value="networking">Networking</option>
+                    <option value="charity">Charity</option>
+                    <option value="social">Social</option>
+                    <option value="sports">Sports</option>
+                    <option value="cultural">Cultural</option>
+                </select>
+                
+                <select class="filter-select" id="eventLocationFilter">
+                    <option value="">All Locations</option>
+                    <option value="campus">Loyola Campus</option>
+                    <option value="city-center">City Center</option>
+                    <option value="park">City Park</option>
+                    <option value="golf-club">Royal Golf Club</option>
+                    <option value="hotel">Grand Hotel</option>
+                </select>
+                
+                <input type="date" class="filter-input" id="eventDateFilter">
+                
+                <button type="submit" class="filter-btn">
+                    <i class="fas fa-filter"></i> Filter
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="upcoming-events section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            
+            <div class="events-grid">
+                <!-- Event 1 -->
+                <div class="event-card" data-type="reunion" data-location="hotel">
+                    <div class="event-image">
+                        <div class="event-date">May 15, 2025</div>
+                        <div class="event-category">Reunion</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title">Annual Reunion Dinner</h3>
+                        <div class="event-meta">
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Hotel, City Center</p>
+                            <p class="event-time"><i class="far fa-clock"></i> 7:00 PM - 11:00 PM</p>
+                        </div>
+                        <p class="event-description">Join us for an evening of camaraderie, celebration, and networking with fellow alumni from various batches.</p>
+                        <a href="#" class="btn btn-primary" data-event="event1">RSVP</a>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="event-card" data-type="networking" data-location="campus">
+                    <div class="event-image">
+                        <div class="event-date">Jun 22, 2025</div>
+                        <div class="event-category">Networking</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title">Career Fair & Networking</h3>
+                        <div class="event-meta">
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Loyola Campus</p>
+                            <p class="event-time"><i class="far fa-clock"></i> 10:00 AM - 4:00 PM</p>
+                        </div>
+                        <p class="event-description">Connect with industry professionals and help the next generation of Loyolans find their career paths.</p>
+                        <a href="#" class="btn btn-primary" data-event="event2">RSVP</a>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="event-card" data-type="social" data-location="park">
+                    <div class="event-image">
+                <div class="event-date">Jul 10, 2025</div>
+                <div class="event-category">Charity</div>
+            </div>
+            <div class="event-details">
+                <h3 class="event-title">Charity Golf Tournament</h3>
+                <div class="event-meta">
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> Royal Golf Club</p>
+                    <p class="event-time"><i class="far fa-clock"></i> 8:00 AM - 5:00 PM</p>
+                </div>
+                <p class="event-description">Enjoy a day on the green while supporting Loyola's scholarship fund for underprivileged students.</p>
+                <a href="#" class="btn btn-primary" data-event="event3">RSVP</a>
+            </div>
+        </div>
+
+
+        <!-- Event 4 -->
+        <div class="event-card" data-type="social" data-location="park">
+            <div class="event-image">
+                <div class="event-date">Aug 5, 2025</div>
+                <div class="event-category">Social</div>
+            </div>
+            <div class="event-details">
+                <h3 class="event-title">Summer Picnic</h3>
+                <div class="event-meta">
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> City Park</p>
+                    <p class="event-time"><i class="far fa-clock"></i> 11:00 AM - 4:00 PM</p>
+                </div>
+                <p class="event-description">Bring your family for a fun-filled day of games, food, and fellowship with other Loyola families.</p>
+                <a href="#" class="btn btn-primary" data-event="event4">RSVP</a>
+            </div>
+        </div>
+        
+        <!-- Event 5 -->
+        <div class="event-card" data-type="cultural" data-location="campus">
+            <div class="event-image">
+                <div class="event-date">Sep 15, 2025</div>
+                <div class="event-category">Cultural</div>
+            </div>
+            <div class="event-details">
+                <h3 class="event-title">Loyola Cultural Night</h3>
+                <div class="event-meta">
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> Loyola Auditorium</p>
+                    <p class="event-time"><i class="far fa-clock"></i> 6:30 PM - 9:30 PM</p>
+                </div>
+                <p class="event-description">Experience an evening of performances celebrating the diverse cultural heritage of our alumni community.</p>
+                <a href="#" class="btn btn-primary" data-event="event5">RSVP</a>
+            </div>
+        </div>
+        
+        <!-- Event 6 -->
+        <div class="event-card" data-type="sports" data-location="campus">
+            <div class="event-image">
+                <div class="event-date">Oct 8, 2025</div>
+                <div class="event-category">Sports</div>
+            </div>
+            <div class="event-details">
+                <h3 class="event-title">Alumni Sports Tournament</h3>
+                <div class="event-meta">
+                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> Loyola Sports Complex</p>
+                    <p class="event-time"><i class="far fa-clock"></i> 9:00 AM - 6:00 PM</p>
+                </div>
+                <p class="event-description">Compete in football, basketball, and cricket tournaments with teams from different batches.</p>
+                <a href="#" class="btn btn-primary" data-event="event6">RSVP</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Past Events Section with Gallery -->
+<section class="past-events section">
+<div class="container">
+    <h2 class="section-title">Past Events Gallery</h2>
+    
+    <div class="gallery-filter">
+        <button class="active" data-filter="all">All Events</button>
+        <button data-filter="reunion">Reunions</button>
+        <button data-filter="networking">Networking</button>
+        <button data-filter="charity">Charity</button>
+        <button data-filter="social">Social</button>
+    </div>
+    
+    <div class="gallery-grid">
+        <!-- Gallery Item 1 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="reunion">
+            <img src="/api/placeholder/400/300" alt="2024 Annual Reunion">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Annual Reunion 2024</h4>
+                <p class="gallery-date">November 10, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 2 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="networking">
+            <img src="/api/placeholder/400/300" alt="Career Workshop">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Career Workshop</h4>
+                <p class="gallery-date">October 5, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 3 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="charity">
+            <img src="/api/placeholder/400/300" alt="Scholarship Fundraiser">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Scholarship Fundraiser</h4>
+                <p class="gallery-date">September 22, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 4 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="social">
+            <img src="/api/placeholder/400/300" alt="Family Day Picnic">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Family Day Picnic</h4>
+                <p class="gallery-date">August 15, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 5 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="reunion">
+            <img src="/api/placeholder/400/300" alt="Class of 2000 Reunion">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Class of 2000 Reunion</h4>
+                <p class="gallery-date">July 8, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 6 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="charity">
+            <img src="/api/placeholder/400/300" alt="Charity Golf Tournament">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Charity Golf Tournament</h4>
+                <p class="gallery-date">June 15, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 7 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="networking">
+            <img src="/api/placeholder/400/300" alt="Industry Mixer">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Industry Mixer</h4>
+                <p class="gallery-date">May 20, 2024</p>
+            </div>
+        </a>
+        
+        <!-- Gallery Item 8 -->
+        <a href="/api/placeholder/800/600" class="gallery-item" data-category="social">
+            <img src="/api/placeholder/400/300" alt="Cultural Night">
+            <div class="gallery-caption">
+                <h4 class="gallery-title">Cultural Night</h4>
+                <p class="gallery-date">April 12, 2024</p>
+            </div>
+        </a>
+    </div>
+    
+    <button class="btn btn-secondary load-more" id="loadMoreGallery">Load More</button>
+</div>
+</section>
+
+<!-- Calendar Section -->
+<section class="calendar-section section">
+<div class="container">
+    <h2 class="section-title">Events Calendar</h2>
+    
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <h3 class="calendar-title">April 2025</h3>
+            <div class="calendar-nav">
+                <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+        
+        <div class="calendar-grid">
+            <!-- Day Headers -->
+            <div class="day-header">Sun</div>
+            <div class="day-header">Mon</div>
+            <div class="day-header">Tue</div>
+            <div class="day-header">Wed</div>
+            <div class="day-header">Thu</div>
+            <div class="day-header">Fri</div>
+            <div class="day-header">Sat</div>
+            
+            <!-- Week 1 -->
+            <div class="calendar-day">
+                <div class="day-number"></div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">1</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">2</div>
+                <div class="day-event">Board Meeting</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">3</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">4</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">5</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">6</div>
+            </div>
+            
+            <!-- Week 2 -->
+            <div class="calendar-day">
+                <div class="day-number">7</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">8</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">9</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">10</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">11</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">12</div>
+                <div class="day-event">Alumni Meet</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">13</div>
+            </div>
+            
+            <!-- Week 3 -->
+            <div class="calendar-day">
+                <div class="day-number">14</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">15</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">16</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">17</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">18</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">19</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">20</div>
+                <div class="day-event">Volunteer Day</div>
+            </div>
+            
+            <!-- Week 4 -->
+            <div class="calendar-day">
+                <div class="day-number">21</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">22</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">23</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">24</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">25</div>
+                <div class="day-event">Career Talk</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">26</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">27</div>
+            </div>
+            
+            <!-- Week 5 -->
+            <div class="calendar-day">
+                <div class="day-number">28</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">29</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number">30</div>
+                <div class="day-event">Committee Meet</div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number"></div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number"></div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number"></div>
+            </div>
+            <div class="calendar-day">
+                <div class="day-number"></div>
+            </div>
+        </div>
+        
+        <!-- Calendar List View (Mobile Only) -->
+        <div class="calendar-list">
+            <div class="calendar-list-item">
+                <div class="calendar-list-date">Apr 2</div>
+                <div class="calendar-list-events">
+                    <div class="calendar-list-event">Board Meeting (7:00 PM)</div>
+                </div>
+            </div>
+            <div class="calendar-list-item">
+                <div class="calendar-list-date">Apr 12</div>
+                <div class="calendar-list-events">
+                    <div class="calendar-list-event">Alumni Meet (5:30 PM)</div>
+                </div>
+            </div>
+            <div class="calendar-list-item">
+                <div class="calendar-list-date">Apr 20</div>
+                <div class="calendar-list-events">
+                    <div class="calendar-list-event">Volunteer Day (10:00 AM)</div>
+                </div>
+            </div>
+            <div class="calendar-list-item">
+                <div class="calendar-list-date">Apr 25</div>
+                <div class="calendar-list-events">
+                    <div class="calendar-list-event">Career Talk (3:00 PM)</div>
+                </div>
+            </div>
+            <div class="calendar-list-item">
+                <div class="calendar-list-date">Apr 30</div>
+                <div class="calendar-list-events">
+                    <div class="calendar-list-event">Committee Meet (6:00 PM)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Event Modal -->
+<div class="modal" id="eventModal">
+<div class="modal-content">
+    <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+    
+    <div class="modal-header">
+        <h2 class="modal-title">Event Title</h2>
+        <p class="modal-subtitle">Event Category</p>
+    </div>
+    
+    <div class="modal-body">
+        <div class="event-info">
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+                <div class="event-info-text">
+                    <h4>Date</h4>
+                    <p id="modalDate">April 15, 2025</p>
+                </div>
+            </div>
+            
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="event-info-text">
+                    <h4>Time</h4>
+                    <p id="modalTime">7:00 PM - 10:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="event-info-item">
+                <div class="event-info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="event-info-text">
+                    <h4>Location</h4>
+                    <p id="modalLocation">Grand Hotel, City Center</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="event-image-full"></div>
+        
+        <div class="event-description-full">
+            <h3>About This Event</h3>
+            <p id="modalDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacinia ex. Nullam id orci massa. Phasellus a nulla vitae augue convallis efficitur. Maecenas justo eros, pellentesque ac ante a, eleifend imperdiet nisl. Nam gravida convallis metus, ac tempor mi aliquet ut.</p>
+        </div>
+        
+        <div class="event-details-extra">
+            <h3>Additional Information</h3>
+            <ul>
+                <li><strong>Dress Code:</strong> <span id="modalDressCode">Formal</span></li>
+                <li><strong>Registration Fee:</strong> <span id="modalFee">$50 per person</span></li>
+                <li><strong>Contact Person:</strong> <span id="modalContact">John Doe (event.coordinator@locoba.org)</span></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <div class="share-buttons">
+            <a href="#" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share-btn"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="share-btn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share-btn"><i class="far fa-envelope"></i></a>
+        </div>
+        
+        <a href="#" class="btn btn-primary" id="modalRsvp">RSVP Now</a>
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container footer-container">
+    <div class="footer-about">
+        <div class="footer-logo">
+            <div style="width: 40px; height: 40px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+            <div style="color: white; font-weight: 800; margin-left: 0.5rem;">LOCOBA</div>
+        </div>
+        <p>Connecting generations of Loyola alumni to foster meaningful relationships and support our alma mater.</p>
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+    
+    <div class="footer-links">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="directory.html">Directory</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-links">
+        <h3 class="footer-title">Resources</h3>
+        <ul>
+            <li><a href="#">Photo Gallery</a></li>
+            <li><a href="#">News & Updates</a></li>
+            <li><a href="#">Career Opportunities</a></li>
+            <li><a href="#">Mentorship Program</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-newsletter">
+        <h3 class="footer-title">Newsletter</h3>
+        <p>Subscribe to receive updates on events, alumni news, and opportunities.</p>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address">
+            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+</div>
+
+<div class="footer-bottom container">
+    <p>&copy; 2025 Loyola Old Boys Association. All Rights Reserved.</p>
+</div>
+</footer>
+
+<script>
+// Mobile Menu Toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.getElementById('navMenu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Event Modal
+const eventModal = document.getElementById('eventModal');
+const closeModal = document.getElementById('closeModal');
+const rsvpButtons = document.querySelectorAll('[data-event]');
+
+// Open modal on RSVP button click
+rsvpButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Get event details (in a real app, this would come from a database)
+        const eventId = button.getAttribute('data-event');
+        const eventCard = button.closest('.event-card');
+        
+        // Update modal content
+        document.querySelector('.modal-title').textContent = eventCard.querySelector('.event-title').textContent;
+        document.querySelector('.modal-subtitle').textContent = eventCard.querySelector('.event-category').textContent;
+        document.getElementById('modalDate').textContent = eventCard.querySelector('.event-date').textContent;
+        document.getElementById('modalTime').textContent = eventCard.querySelector('.event-time').textContent.replace('Time: ', '');
+        document.getElementById('modalLocation').textContent = eventCard.querySelector('.event-location').textContent.replace('Location: ', '');
+        document.getElementById('modalDescription').textContent = eventCard.querySelector('.event-description').textContent;
+        
+        // Show modal
+        eventModal.classList.add('active');
+    });
+});
+
+// Close modal
+closeModal.addEventListener('click', () => {
+    eventModal.classList.remove('active');
+});
+
+// Close modal if clicked outside
+window.addEventListener('click', (e) => {
+    if (e.target === eventModal) {
+        eventModal.classList.remove('active');
+    }
+});
+
+// Gallery Filter
+const galleryFilterButtons = document.querySelectorAll('.gallery-filter button');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+galleryFilterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Update active button
+        galleryFilterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter gallery items
+        const filter = button.getAttribute('data-filter');
+        
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Initialize Simple Lightbox for gallery
+new SimpleLightbox('.gallery-item', {
+    captionsData: 'title',
+    captionDelay: 250
+});
+
+// Event Filter Form
+const eventFilterForm = document.getElementById('eventFilterForm');
+const eventCards = document.querySelectorAll('.event-card');
+
+eventFilterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const searchTerm = eventFilterForm.querySelector('input[type="text"]').value.toLowerCase();
+    const eventType = document.getElementById('eventTypeFilter').value;
+    const eventLocation = document.getElementById('eventLocationFilter').value;
+    const eventDate = document.getElementById('eventDateFilter').value;
+    
+    eventCards.forEach(card => {
+        let visible = true;
+        
+        // Filter by search term
+        if (searchTerm) {
+            const eventTitle = card.querySelector('.event-title').textContent.toLowerCase();
+            if (!eventTitle.includes(searchTerm)) {
+                visible = false;
+            }
+        }
+        
+        // Filter by event type
+        if (eventType && card.getAttribute('data-type') !== eventType) {
+            visible = false;
+        }
+        
+        // Filter by location
+        if (eventLocation && card.getAttribute('data-location') !== eventLocation) {
+            visible = false;
+        }
+        
+        // Filter by date (simplified - in a real app, would need proper date comparison)
+        if (eventDate) {
+            // This is a simplified check - would need actual date parsing in a real app
+            const cardDate = card.querySelector('.event-date').textContent;
+            if (!cardDate.includes(eventDate)) {
+                visible = false;
+            }
+        }
+        
+        card.style.display = visible ? 'block' : 'none';
+    });
+});
+
+// Load More Gallery Items (simulated)
+const loadMoreBtn = document.getElementById('loadMoreGallery');
+let galleryLoaded = false;
+
+loadMoreBtn.addEventListener('click', () => {
+    if (!galleryLoaded) {
+        // In a real app, this would load more items from server
+        // For demo, we'll just show a message
+        loadMoreBtn.textContent = 'No More Items';
+        loadMoreBtn.disabled = true;
+        galleryLoaded = true;
+    }
+});
+
+// Calendar Navigation (simplified)
+const prevMonthBtn = document.getElementById('prevMonth');
+const nextMonthBtn = document.getElementById('nextMonth');
+const calendarTitle = document.querySelector('.calendar-title');
+
+const months = [
+    'January', 'February', 'March', 'April', 
+    'May', 'June', 'July', 'August',
+    'September', 'October', 'November', 'December'
+];
+
+let currentMonthIndex = 3; // April
+
+prevMonthBtn.addEventListener('click', () => {
+    currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
+    calendarTitle.textContent = `${months[currentMonthIndex]} 2025`;
+});
+
+nextMonthBtn.addEventListener('click', () => {
+    currentMonthIndex = (currentMonthIndex + 1) % 12;
+    calendarTitle.textContent = `${months[currentMonthIndex]} 2025`;
+});
+</script>
+
+</body>
+</html>

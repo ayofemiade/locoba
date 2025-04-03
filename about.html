@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - LOCOBA | Loyola Old Boys Association</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-red: #7E272F;
+            --dark-red: #5B1C22;
+            --black: #171719;
+            --dark-gray: #2E2E30;
+            --light-gray: #E6E6E6;
+            --soft-white: #F8F8F8;
+            --white: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--soft-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-red);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+            padding-left: 70px;
+        }
+
+        /* Page Banner */
+        .page-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/400') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumbs {
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--light-gray);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--white);
+        }
+
+        .breadcrumbs span {
+            margin: 0 0.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--black);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .about-content h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background-color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .timeline-container h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-container h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-red);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-red);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-left::after {
+            right: -10px;
+        }
+
+        .timeline-right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--soft-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision-section {
+            padding: 5rem 0;
+        }
+
+        .mission-vision-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .mission-box, .vision-box {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .mission-box h3, .vision-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            color: var(--black);
+        }
+
+        .mission-box h3:after, .vision-box h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        /* Core Values Section */
+        .core-values-section {
+            background-color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .core-values-container h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .core-values-container h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--soft-white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-newsletter p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gray);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .about-container, .mission-vision-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                min-height: 300px;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-banner h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left;
+            }
+            
+            .timeline-item::after {
+                left: 22px;
+                right: auto;
+            }
+            
+            .timeline-left, .timeline-right {
+                left: 0;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div style="width: 50px; height: 50px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                <div class="logo-text">LOCOBA</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="donations.html">Donations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>About Us</span>
+            </div>
+            <h1>About LOCOBA</h1>
+            <p>Learn about our history, mission, vision, and core values.</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-section">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2>Our History</h2>
+                <p>The Loyola Old Boys Association (LOCOBA) was established in 1975 with the aim of fostering brotherhood, networking, and giving back to our alma mater. What began as a small gathering of graduates has now evolved into a global network of over 10,000 alumni spanning across various industries and sectors.</p>
+                <p>For over four decades, LOCOBA has played a pivotal role in supporting Loyola College through scholarships, infrastructure development, mentorship programs, and various community outreach initiatives.</p>
+                <p>Our alumni have made significant contributions to society, serving as leaders in business, politics, academia, healthcare, and various other fields. We take pride in our diverse alumni base and their collective impact on the world.</p>
+                <p>Today, LOCOBA continues to grow stronger, guided by the principles of excellence, service, and lifelong brotherhood that were instilled in us during our formative years at Loyola College.</p>
+                <a href="#" class="btn btn-primary">Join Our Community</a>
+            </div>
+            <div class="about-image">
+                <!-- Placeholder for school image -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container timeline-container">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1975</div>
+                        <h3 class="timeline-title">Foundation of LOCOBA</h3>
+                        <p>The Loyola Old Boys Association was officially established with 50 founding members to maintain connections between alumni and the school.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1985</div>
+                        <h3 class="timeline-title">First Alumni Center</h3>
+                        <p>LOCOBA inaugurated its first official alumni center on campus, providing a permanent home for alumni activities and gatherings.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1995</div>
+                        <h3 class="timeline-title">Scholarship Fund</h3>
+                        <p>Established the LOCOBA Scholarship Fund to provide financial assistance to deserving students from underprivileged backgrounds.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2005</div>
+                        <h3 class="timeline-title">Global Expansion</h3>
+                        <p>LOCOBA expanded internationally with chapters established in the United States, United Kingdom, Australia, and the Middle East.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3 class="timeline-title">Mentorship Program</h3>
+                        <p>Launched the Alumni Mentorship Program connecting current students with successful alumni for career guidance and professional development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h3 class="timeline-title">50th Anniversary</h3>
+                        <p>Celebrating 50 years of excellence, brotherhood, and service with a yearlong series of events and a major fundraising campaign.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision-section">
+        <div class="container mission-vision-container">
+            <div class="mission-box">
+                <div class="icon-box">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Our Mission</h3>
+                <p>To foster a strong and supportive alumni community that upholds the values of Loyola College while contributing to the growth and development of our alma mater and society at large.</p>
+                <p>We strive to create meaningful connections between past, present, and future Loyolans through networking opportunities, mentorship programs, and collaborative initiatives that benefit both our alumni and the school.</p>
+                <p>Our mission is to leverage the collective strength, expertise, and resources of our alumni to make a positive impact in our communities and to support the educational excellence that Loyola College is known for.</p>
+            </div>
+            <div class="vision-box">
+                <div class="icon-box">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Our Vision</h3>
+                <p>To be a globally recognized alumni association that serves as a model for educational institutions worldwide, known for its strong network, impactful initiatives, and unwavering commitment to excellence.</p>
+                <p>We envision a future where every Loyola graduate remains an active part of the school community, contributing to its legacy and benefiting from lifelong connections with fellow alumni.</p>
+                <p>Our vision encompasses a vibrant ecosystem where knowledge, opportunities, and resources are shared freely among our members, creating a supportive environment for personal and professional growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="core-values-section">
+        <div class="container core-values-container">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Brotherhood</h3>
+                    <p>We foster meaningful relationships among alumni based on mutual respect, support, and shared experiences from our time at Loyola.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p>We strive for excellence in all our endeavors, upholding the high standards instilled in us during our education at Loyola College.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 class="value-title">Service</h3>
+                    <p>We are committed to serving our alma mater, our communities, and society at large through volunteer work and philanthropic initiatives.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="value-title">Integrity</h3>
+                    <p>We conduct ourselves with honesty, transparency, and ethical behavior in all our interactions and initiatives.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Inclusivity</h3>
+                    <p>We embrace diversity and ensure that all alumni, regardless of background or circumstances, feel welcome and valued in our community.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p>We encourage creative thinking and innovative approaches to address challenges and create opportunities for our members and institution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div style="width: 40px; height: 40px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                    <div style="color: white; font-weight: 800; margin-left: 0.5rem;">LOCOBA</div>
+                </div>
+                <p>Connecting generations of Loyola alumni to foster meaningful relationships and support our alma mater.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Resources</h3>
+                <ul>
+                    <li><a href="#">Photo Gallery</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                    <li><a href="#">Career Opportunities</a></li>
+                    <li><a href="#">Mentorship Program</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-title">Newsletter</h3>
+                <p>Subscribe to receive updates on events, alumni news, and opportunities.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address">
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2025 Loyola Old Boys Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

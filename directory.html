@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Directory & Networking - LOCOBA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-red: #7E272F;
+            --dark-red: #5B1C22;
+            --black: #171719;
+            --dark-gray: #2E2E30;
+            --light-gray: #E6E6E6;
+            --soft-white: #F8F8F8;
+            --white: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--soft-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-red);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+            padding-left: 70px;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/300') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Directory Search Section */
+        .directory-search {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .form-control {
+            padding: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-buttons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Directory Results Section */
+        .directory-results {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .alumni-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .alumni-header {
+            display: flex;
+            padding: 1.5rem;
+            background-color: var(--soft-white);
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .alumni-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .alumni-info {
+            margin-left: 1rem;
+        }
+
+        .alumni-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .alumni-class {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .alumni-details {
+            padding: 1.5rem;
+        }
+
+        .detail-item {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .detail-item i {
+            color: var(--primary-red);
+            margin-right: 0.75rem;
+            width: 16px;
+        }
+
+        .card-actions {
+            padding: 1rem 1.5rem;
+            background-color: var(--soft-white);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .pagination-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0.25rem;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--black);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pagination-item:hover {
+            background-color: var(--light-gray);
+        }
+
+        .pagination-item.active {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        /* Networking Section */
+        .networking-section {
+            background-color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .networking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .networking-card {
+            background-color: var(--soft-white);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .networking-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+        }
+
+        .mentor-spotlight {
+            margin-top: 4rem;
+        }
+
+        .mentor-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .mentor-card {
+            background-color: var(--soft-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mentor-header {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .mentor-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--white);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            font-weight: bold;
+        }
+
+        .mentor-details {
+            padding: 1.5rem;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .expertise-tag {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-newsletter p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gray);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .search-form {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .search-buttons {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .directory-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .networking-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mentor-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-buttons {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div style="width: 50px; height: 50px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                <div class="logo-text">LOCOBA</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="donations.html">Donations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Alumni Directory & Networking</h1>
+            <p>Connect with fellow Loyolans, find mentors, and build meaningful professional relationships.</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="container">
+        <div class="directory-search">
+            <form class="search-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Search by name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="graduationYear">Graduation Year</label>
+                    <select id="graduationYear" class="form-control">
+                        <option value="">All Years</option>
+                        <option value="2020">2020 - 2025</option>
+                        <option value="2010">2010 - 2019</option>
+                        <option value="2000">2000 - 2009</option>
+                        <option value="1990">1990 - 1999</option>
+                        <option value="1980">1980 - 1989</option>
+                        <option value="1970">Before 1980</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="profession">Professional Field</label>
+                    <select id="profession" class="form-control">
+                        <option value="">All Fields</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="finance">Finance & Banking</option>
+                        <option value="law">Law & Legal</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="arts">Arts & Entertainment</option>
+                        <option value="business">Business & Entrepreneurship</option>
+                        <option value="government">Government & Public Service</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" class="form-control" placeholder="City, State, or Country">
+                </div>
+                
+                <div class="search-buttons">
+                    <button type="reset" class="btn btn-outline">Reset</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Directory Results Section -->
+    <section class="directory-results">
+        <div class="container">
+            <h2 class="section-title">Alumni Directory</h2>
+            
+            <div class="directory-grid">
+                <!-- Alumni Card 1 -->
+                <div class="alumni-card">
+                    <div class="alumni-header">
+                        <div class="alumni-avatar">RK</div>
+                        <div class="alumni-info">
+                            <h3 class="alumni-name">Dr. Robert Kumar</h3>
+                            <div class="alumni-class">Class of 1998</div>
+                        </div>
+                    </div>
+                    <div class="alumni-details">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Cardiothoracic Surgeon</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>City General Hospital</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Boston, Massachusetts</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                        <a href="#" class="btn btn-primary">Connect</a>
+                    </div>
+                </div>
+                
+                <!-- Alumni Card 2 -->
+                <div class="alumni-card">
+                    <div class="alumni-header">
+                        <div class="alumni-avatar">JT</div>
+                        <div class="alumni-info">
+                            <h3 class="alumni-name">Jennifer Thompson</h3>
+                            <div class="alumni-class">Class of 2005</div>
+                        </div>
+                    </div>
+                    <div class="alumni-details">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Senior Product Manager</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>TechGlobal Inc.</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>San Francisco, California</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                        <a href="#" class="btn btn-primary">Connect</a>
+                    </div>
+                </div>
+                
+                <!-- Alumni Card 3 -->
+                <div class="alumni-card">
+                    <div class="alumni-header">
+                        <div class="alumni-avatar">MP</div>
+                        <div class="alumni-info">
+                            <h3 class="alumni-name">Marcus Patel</h3>
+                            <div class="alumni-class">Class of 2012</div>
+                        </div>
+                    </div>
+                    <div class="alumni-details">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Environmental Scientist</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>EcoSolutions Research</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Seattle, Washington</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                        <a href="#" class="btn btn-primary">Connect</a>
+                    </div>
+                </div>
+                
+                <!-- Alumni Card 4 -->
+                <div class="alumni-card">
+                    <div class="alumni-header">
+                        <div class="alumni-avatar">SR</div>
+                        <div class="alumni-info">
+                            <h3 class="alumni-name">Sophia Rodriguez</h3>
+                            <div class="alumni-class">Class of 2008</div>
+                        </div>
+                    </div>
+                    <div class="alumni-details">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Corporate Attorney</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>Harker & Associates</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Chicago, Illinois</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                        <a href="#" class="btn btn-primary">Connect</a>
+                    </div>
+                </div>
+                
+                <!-- Alumni Card 5 -->
+                <div class="alumni-card">
+                    <div class="alumni-header">
+                        <div class="alumni-avatar">DO</div>
+                        <div class="alumni-info">
+                            <h3 class="alumni-name">David Okonkwo</h3>
+                            <div class="alumni-class">Class of 2001</div>
+                        </div>
+                    </div>
+                    <div class="alumni-details">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Financial Analyst</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>Global Investment Partners</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>New York, New York</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                        <a href="#" class="btn btn-primary">Connect</a>
+                    </div>
+                </div>
+                
+                <!-- Alumni Card 6 -->
+                <div class="alumni-card">
+                    <div class="alumni-header">
+                        <div class="alumni-avatar">AL</div>
+                        <div class="alumni-info">
+                            <h3 class="alumni-name">Amanda Liu</h3>
+                            <div class="alumni-class">Class of 2015</div>
+                        </div>
+                    </div>
+                    <div class="alumni-details">
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>Marketing Director</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-building"></i>
+                            <div>CreativeEdge Studios</div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>Los Angeles, California</div>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                        <a href="#" class="btn btn-primary">Connect</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="pagination-item active">1</a>
+                <a href="#" class="pagination-item">2</a>
+                <a href="#" class="pagination-item">3</a>
+                <a href="#" class="pagination-item">4</a>
+                <a href="#" class="pagination-item">5</a>
+                <a href="#" class="pagination-item"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Networking Section -->
+    <section class="networking-section">
+        <div class="container">
+            <h2 class="section-title">Networking Opportunities</h2>
+            
+            <div class="networking-grid">
+                <div class="networking-card">
+                    <div class="networking-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Find Mentors</h3>
+                    <p>Connect with experienced alumni who can guide you through your career journey and help you achieve your professional goals.</p>
+                    <a href="#mentor-spotlight" class="btn btn-primary">Find a Mentor</a>
+                </div>
+                
+                <div class="networking-card">
+                    <div class="networking-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Industry Groups</h3>
+                    <p>Join specialized groups based on your professional field to share insights, opportunities, and expand your professional network with like-minded alumni.</p>
+                    <a href="#industry-groups" class="btn btn-primary">Browse Groups</a>
+                </div>
+                
+                <div class="networking-card">
+                    <div class="networking-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Job Opportunities</h3>
+                    <p>Explore career opportunities posted exclusively for Loyola alumni or post openings at your organization to help fellow alumni advance.</p>
+                    <a href="#job-board" class="btn btn-primary">Visit Job Board</a>
+                </div>
+            </div>
+            
+            <!-- Mentor Spotlight Section -->
+            <div class="mentor-spotlight" id="mentor-spotlight">
+                <h3 class="section-title">Recommended Mentors</h3>
+                
+                <div class="mentor-list">
+                    <!-- Mentor 1 -->
+                    <div class="mentor-card">
+                        <div class="mentor-header">
+                            <div class="mentor-avatar">JW</div>
+                            <h3>Dr. James Wilson</h3>
+                            <p>Class of 1985</p>
+                        </div>
+                        <div class="mentor-details">
+                            <p><strong>Chief of Cardiology</strong></p>
+                            <p>University Medical Center</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
+                            <div class="expertise-tags">
+                                <span class="expertise-tag">Healthcare</span>
+                                <span class="expertise-tag">Research</span>
+                                <span class="expertise-tag">Leadership</span>
+                            </div>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="#" class="btn btn-primary">Request Mentorship</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mentor 2 -->
+                    <div class="mentor-card">
+                        <div class="mentor-header">
+                            <div class="mentor-avatar">SJ</div>
+                            <h3>Sarah Johnson</h3>
+                            <p>Class of 1992</p>
+                        </div>
+                        <div class="mentor-details">
+                            <p><strong>Principal Architect</strong></p>
+                            <p>Johnson Design Group</p>
+                            <p><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                            <div class="expertise-tags">
+                                <span class="expertise-tag">Architecture</span>
+                                <span class="expertise-tag">Design</span>
+                                <span class="expertise-tag">Entrepreneurship</span>
+                            </div>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="#" class="btn btn-primary">Request Mentorship</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mentor 3 -->
+                    <div class="mentor-card">
+                        <div class="mentor-header">
+                            <div class="mentor-avatar">MT</div>
+                            <h3>Michael Torres</h3>
+                            <p>Class of 2000</p>
+                        </div>
+                        <div class="mentor-details">
+                            <p><strong>CEO & Founder</strong></p>
+                            <p>InnovateTech Solutions</p>
+                            <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                            <div class="expertise-tags">
+                                <span class="expertise-tag">Technology</span>
+                                <span class="expertise-tag">Startups</span>
+                                <span class="expertise-tag">Venture Capital</span>
+                            </div>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="#" class="btn btn-primary">Request Mentorship</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mentor 4 -->
+                    <div class="mentor-card">
+                        <div class="mentor-header">
+                            <div class="mentor-avatar">PL</div>
+                            <h3>Patricia Lee</h3>
+                            <p>Class of 1997</p>
+                        </div>
+                        <div class="mentor-details">
+                            <p><strong>Senior Legal Counsel</strong></p>
+                            <p>Global Legal Partners</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Washington, DC</p>
+                            <div class="expertise-tags">
+                                <span class="expertise-tag">Law</span>
+                                <span class="expertise-tag">Corporate</span>
+                                <span class="expertise-tag">International</span>
+                            </div>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="#" class="btn btn-primary">Request Mentorship</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div style="width: 40px; height: 40px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                    <div style="color: white; font-weight: 800; margin-left: 0.5rem;">LOCOBA</div>
+                </div>
+                <p>Connecting generations of Loyola alumni to foster meaningful relationships and support our alma mater.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Resources</h3>
+                <ul>
+                    <li><a href="#">Photo Gallery</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                    <li><a href="#">Career Opportunities</a></li>
+                    <li><a href="#">Mentorship Program</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-title">Newsletter</h3>
+                <p>Subscribe to receive updates on events, alumni news, and opportunities.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address">
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2025 Loyola Old Boys Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Search functionality
+        const searchForm = document.querySelector('.search-form');
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real application, this would send the search criteria to the server
+            // For demo purposes, we'll just show an alert
+            alert('Search functionality would be implemented here with backend processing.');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+        
+        // Pagination functionality (for demo)
+        document.querySelectorAll('.pagination-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.pagination-item').forEach(el => {
+                    el.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // In a real application, this would load the corresponding page of results
+                window.scrollTo({
+                    top: document.querySelector('.directory-results').offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

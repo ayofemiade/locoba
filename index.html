@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCOBA - Loyola Old Boys Association</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-red: #7E272F;
+            --dark-red: #5B1C22;
+            --black: #171719;
+            --dark-gray: #2E2E30;
+            --light-gray: #E6E6E6;
+            --soft-white: #F8F8F8;
+            --white: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--soft-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-red);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+        
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+            padding-left: 70px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        /* Events Section */
+        .events-section {
+            background-color: var(--soft-white);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .events-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .events-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .event-card {
+            flex: 0 0 calc(33.333% - 2rem);
+            margin: 0 1rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-image {
+            height: 200px;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .event-date {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .event-details {
+            padding: 1.5rem;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-location {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .event-location i {
+            margin-right: 0.5rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .slider-btn {
+            background-color: var(--light-gray);
+            border: none;
+            color: var(--black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        /* Alumni Spotlight Section */
+        .alumni-section {
+            background-color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .alumni-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .alumni-card {
+            background-color: var(--soft-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .alumni-image {
+            height: 250px;
+            background-color: var(--light-gray);
+        }
+
+        .alumni-details {
+            padding: 1.5rem;
+        }
+
+        .alumni-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alumni-class {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .alumni-bio {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-newsletter p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gray);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .event-card {
+                flex: 0 0 calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin-bottom: 2rem;
+            }
+            
+            .event-card {
+                flex: 0 0 calc(100% - 2rem);
+            }
+            
+            .alumni-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div style="width: 50px; height: 50px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                <div class="logo-text">LOCOBA</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="donations.html">Donations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Welcome to the Loyola Old Boys Association</h1>
+            <p>Connecting past, present, and future Loyolans.</p>
+            <div class="hero-buttons">
+                <a href="#membership" class="btn btn-primary">Join Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Alumni Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Annual Events</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Years of Legacy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$2M+</div>
+                    <div class="stat-label">Funds Raised</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            
+            <div class="events-slider">
+                <div class="events-track" id="eventsTrack">
+                    <div class="event-card">
+                        <div class="event-image">
+                            <div class="event-date">May 15, 2025</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Annual Reunion Dinner</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Hotel, City Center</p>
+                            <p>Join us for an evening of camaraderie, celebration, and networking with fellow alumni.</p>
+                            <a href="#" class="btn btn-primary">RSVP</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image">
+                            <div class="event-date">Jun 22, 2025</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Career Fair & Networking</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Loyola Campus</p>
+                            <p>Connect with industry professionals and help the next generation of Loyolans.</p>
+                            <a href="#" class="btn btn-primary">RSVP</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image">
+                            <div class="event-date">Jul 10, 2025</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Charity Golf Tournament</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Royal Golf Club</p>
+                            <p>Enjoy a day on the green while supporting Loyola's scholarship fund.</p>
+                            <a href="#" class="btn btn-primary">RSVP</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-image">
+                            <div class="event-date">Aug 5, 2025</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Summer Picnic</h3>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> City Park</p>
+                            <p>Bring your family for a fun-filled day of games, food, and fellowship.</p>
+                            <a href="#" class="btn btn-primary">RSVP</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Spotlight Section -->
+    <section class="alumni-section">
+        <div class="container">
+            <h2 class="section-title">Notable Alumni Spotlight</h2>
+            
+            <div class="alumni-container">
+                <div class="alumni-card">
+                    <div class="alumni-image"></div>
+                    <div class="alumni-details">
+                        <h3 class="alumni-name">Dr. James Wilson</h3>
+                        <div class="alumni-class">Class of 1985</div>
+                        <p class="alumni-bio">Leading cardiologist who has pioneered innovative surgical techniques and published over 50 research papers.</p>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="alumni-card">
+                    <div class="alumni-image"></div>
+                    <div class="alumni-details">
+                        <h3 class="alumni-name">Sarah Johnson</h3>
+                        <div class="alumni-class">Class of 1992</div>
+                        <p class="alumni-bio">Award-winning architect responsible for designing several iconic buildings across the country.</p>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+                
+                <div class="alumni-card">
+                    <div class="alumni-image"></div>
+                    <div class="alumni-details">
+                        <h3 class="alumni-name">Michael Torres</h3>
+                        <div class="alumni-class">Class of 2000</div>
+                        <p class="alumni-bio">Tech entrepreneur who founded a successful startup now valued at over $500 million.</p>
+                        <a href="#" class="btn btn-secondary">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div style="width: 40px; height: 40px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                    <div style="color: white; font-weight: 800; margin-left: 0.5rem;">LOCOBA</div>
+                </div>
+                <p>Connecting generations of Loyola alumni to foster meaningful relationships and support our alma mater.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#directory">Directory</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Resources</h3>
+                <ul>
+                    <li><a href="#">Photo Gallery</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                    <li><a href="#">Career Opportunities</a></li>
+                    <li><a href="#">Mentorship Program</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-title">Newsletter</h3>
+                <p>Subscribe to receive updates on events, alumni news, and opportunities.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address">
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2025 Loyola Old Boys Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Events Slider
+        const eventsTrack = document.getElementById('eventsTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let slideIndex = 0;
+        const eventCards = document.querySelectorAll('.event-card');
+        const cardWidth = eventCards[0].offsetWidth + 32; // Including margins
+        const maxIndex = eventCards.length - getVisibleCards();
+        
+        function getVisibleCards() {
+            if (window.innerWidth < 768) return 1;
+            if (window.innerWidth < 992) return 2;
+            return 3;
+        }
+        
+        function updateSlider() {
+            eventsTrack.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
+        }
+        
+        function checkButtons() {
+            prevBtn.disabled = slideIndex <= 0;
+            prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+            
+            nextBtn.disabled = slideIndex >= maxIndex;
+            nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            if (slideIndex > 0) {
+                slideIndex--;
+                updateSlider();
+                checkButtons();
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (slideIndex < maxIndex) {
+                slideIndex++;
+                updateSlider();
+                checkButtons();
+            }
+        });
+        
+        // Initialize
+        checkButtons();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newMaxIndex = eventCards.length - getVisibleCards();
+            slideIndex = Math.min(slideIndex, newMaxIndex);
+            updateSlider();
+            checkButtons();
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

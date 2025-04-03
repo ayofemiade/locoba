@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCOBA - Executives</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-red: #7E272F;
+            --dark-red: #5B1C22;
+            --black: #171719;
+            --dark-gray: #2E2E30;
+            --light-gray: #E6E6E6;
+            --soft-white: #F8F8F8;
+            --white: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--soft-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-red);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--black);
+            color: var(--black);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+            padding-left: 70px;
+        }
+
+        /* Page Title Section */
+        .page-title-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/300') no-repeat center center;
+            background-size: cover;
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .page-title-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 0.5rem;
+        }
+
+        .breadcrumb li:after {
+            content: '/';
+            margin-left: 0.5rem;
+            color: var(--light-gray);
+        }
+
+        .breadcrumb li:last-child:after {
+            content: '';
+        }
+
+        .breadcrumb li a {
+            color: var(--light-gray);
+        }
+
+        .breadcrumb li a:hover {
+            color: var(--white);
+        }
+
+        .breadcrumb li.active {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Executive Team Section */
+        .executives-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .executives-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .executive-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .executive-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .executive-image {
+            height: 300px;
+            background-color: var(--light-gray);
+            position: relative;
+        }
+
+        .executive-role {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(126, 39, 47, 0.9);
+            color: var(--white);
+            padding: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .executive-details {
+            padding: 1.5rem;
+        }
+
+        .executive-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .executive-class {
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .executive-bio {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .executive-social {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .executive-social a {
+            width: 32px;
+            height: 32px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+        }
+
+        .executive-social a:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        /* Tenure Section */
+        .tenure-section {
+            background-color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .tenure-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tenure-item {
+            border-left: 3px solid var(--primary-red);
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .tenure-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .tenure-item:before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--primary-red);
+            border-radius: 50%;
+            left: -9px;
+            top: 5px;
+        }
+
+        .tenure-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .tenure-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tenure-details p {
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary-red);
+            border: none;
+        }
+
+        .btn-white:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-red);
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline-white:hover {
+            background-color: var(--white);
+            color: var(--primary-red);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-newsletter p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gray);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .executives-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title-section h1 {
+                font-size: 2rem;
+            }
+            
+            .executives-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div style="width: 50px; height: 50px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                <div class="logo-text">LOCOBA</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="donations.html">Donations</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title Section -->
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Our Executive Committee</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Executives</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Executive Team Section -->
+    <section class="executives-section" id="executive-team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Leadership</h2>
+            <p class="section-subtitle">Our executive committee is composed of dedicated alumni who volunteer their time and expertise to further the mission of the Loyola Old Boys Association.</p>
+            
+            <div class="executives-container">
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">President</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Dr. Robert Williams</h3>
+                        <div class="executive-class">Class of 1988</div>
+                        <p class="executive-bio">Dr. Williams is a distinguished cardiologist and healthcare executive who has been involved with LOCOBA for over 15 years. He brings strategic vision and leadership to the association.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Vice President</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Patricia Hernandez</h3>
+                        <div class="executive-class">Class of 1992</div>
+                        <p class="executive-bio">Patricia is a tech entrepreneur and business strategist who has founded multiple successful startups. She focuses on modernizing the association's outreach and programs.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Secretary</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Marcus Johnson</h3>
+                        <div class="executive-class">Class of 1995</div>
+                        <p class="executive-bio">Marcus is a corporate lawyer who ensures organizational compliance and documentation. His attention to detail and organizational skills are invaluable to the association.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Treasurer</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Daniel Chen</h3>
+                        <div class="executive-class">Class of 1994</div>
+                        <p class="executive-bio">Daniel is a financial consultant with expertise in investment management and fundraising. He oversees the association's financial health and scholarship programs.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Events Director</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Laura Stevens</h3>
+                        <div class="executive-class">Class of 2001</div>
+                        <p class="executive-bio">Laura has extensive experience in event planning and marketing. She coordinates our annual gatherings, ensuring memorable experiences for all attendees.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Membership Director</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Michael Thomas</h3>
+                        <div class="executive-class">Class of 1999</div>
+                        <p class="executive-bio">Michael works in human resources and focuses on building community. He leads initiatives to increase membership engagement and participation.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Communications Director</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">Sophia Rodriguez</h3>
+                        <div class="executive-class">Class of 2005</div>
+                        <p class="executive-bio">Sophia is a digital marketing specialist who manages all association communications, including our newsletter, website, and social media presence.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="executive-card">
+                    <div class="executive-image">
+                        <div class="executive-role">Outreach Director</div>
+                    </div>
+                    <div class="executive-details">
+                        <h3 class="executive-name">James Wilson</h3>
+                        <div class="executive-class">Class of 1997</div>
+                        <p class="executive-bio">James works in philanthropy and leads our community service initiatives. He builds partnerships with local organizations to create impact.</p>
+                        <div class="executive-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Presidents Section -->
+    <section class="tenure-section" id="past-presidents">
+        <div class="container">
+            <h2 class="section-title">Past Presidents</h2>
+            <p class="section-subtitle">Honoring the legacy of leadership that has shaped our association through the years.</p>
+            
+            <div class="tenure-container">
+                <div class="tenure-item">
+                    <div class="tenure-year">2021-2024</div>
+                    <div class="tenure-details">
+                        <h3>Dr. Thomas Reynolds</h3>
+                        <p>Class of 1985</p>
+                        <p>Led the association through the post-pandemic recovery period. Established the digital platform for alumni networking and the mentorship program.</p>
+                    </div>
+                </div>
+                
+                <div class="tenure-item">
+                    <div class="tenure-year">2018-2021</div>
+                    <div class="tenure-details">
+                        <h3>Jennifer Martinez</h3>
+                        <p>Class of 1990</p>
+                        <p>Oversaw the expansion of the scholarship program and initiated the annual career fair. Created regional chapters across the country.</p>
+                    </div>
+                </div>
+                
+                <div class="tenure-item">
+                    <div class="tenure-year">2015-2018</div>
+                    <div class="tenure-details">
+                        <h3>Richard Patel</h3>
+                        <p>Class of 1983</p>
+                        <p>Strengthened the association's financial foundation. Launched the endowment fund and annual giving campaign.</p>
+                    </div>
+                </div>
+                
+                <div class="tenure-item">
+                    <div class="tenure-year">2012-2015</div>
+                    <div class="tenure-details">
+                        <h3>Dr. Margaret Wu</h3>
+                        <p>Class of 1978</p>
+                        <p>Implemented the first strategic plan for the association. Modernized governance structures and bylaws.</p>
+                    </div>
+                </div>
+                
+                <div class="tenure-item">
+                    <div class="tenure-year">2009-2012</div>
+                    <div class="tenure-details">
+                        <h3>Jonathan Clark</h3>
+                        <p>Class of 1981</p>
+                        <p>Revitalized the alumni connection to the school. Established the annual homecoming event and reunion weekend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Join Our Leadership Team</h2>
+            <p class="cta-text">We're always looking for passionate alumni to get involved with our committees and initiatives. Your skills and experience can help strengthen our community and further our mission.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-white">Volunteer Opportunities</a>
+                <a href="#" class="btn btn-outline-white">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div style="width: 40px; height: 40px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
+                    <div style="color: white; font-weight: 800; margin-left: 0.5rem;">LOCOBA</div>
+                </div>
+                <p>Connecting generations of Loyola alumni to foster meaningful relationships and support our alma mater.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#directory">Directory</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h3 class="footer-title">Resources</h3>
+                <ul>
+                    <li><a href="#">Photo Gallery</a></li>
+                    <li><a href="#">News & Updates</a></li>
+                    <li><a href="#">Career Opportunities</a></li>
+                    <li><a href="#">Mentorship Program</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h3 class="footer-title">Newsletter</h3>
+                <p>Subscribe to receive updates on events, alumni news, and opportunities.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Your email address">
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom container">
+            <p>&copy; 2025 Loyola Old Boys Association. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
