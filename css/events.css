@@ -1,0 +1,894 @@
+/* CSS Variables for Brand Colors */
+:root {
+    --primary-red: #7E272F;
+    --dark-red: #5B1C22;
+    --black: #171719;
+    --dark-gray: #2E2E30;
+    --light-gray: #E6E6E6;
+    --soft-white: #F8F8F8;
+    --white: #FFFFFF;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--black);
+    background-color: var(--soft-white);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-red);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--dark-red);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--black);
+    color: var(--black);
+}
+
+.btn-secondary:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logo-text {
+    margin-left: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: var(--primary-red);
+    font-size: 1.2rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--black);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-red);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
+    padding-left: 70px;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/300') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--black);
+    position: relative;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-red);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Filter & Search Section */
+.filter-section {
+    background-color: var(--white);
+    padding: 2rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.75rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+}
+
+.filter-select {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.75rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--dark-red);
+}
+
+/* Upcoming Events Section */
+.upcoming-events {
+    padding: 4rem 0;
+    background-color: var(--soft-white);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image {
+    height: 200px;
+    background-color: var(--light-gray);
+    position: relative;
+}
+
+.event-date {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.event-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.event-details {
+    padding: 1.5rem;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-meta {
+    margin-bottom: 1rem;
+}
+
+.event-location, .event-time {
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.event-location i, .event-time i {
+    margin-right: 0.5rem;
+    width: 16px;
+}
+
+.event-description {
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+/* Past Events Section */
+.past-events {
+    padding: 4rem 0;
+    background-color: var(--white);
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.gallery-filter button {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.gallery-filter button.active, .gallery-filter button:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 200px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: var(--white);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+
+.gallery-title {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.gallery-date {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.load-more {
+    display: block;
+    margin: 3rem auto 0;
+    padding: 0.75rem 2rem;
+}
+
+/* Calendar Section */
+.calendar-section {
+    padding: 4rem 0;
+    background-color: var(--soft-white);
+}
+
+.calendar-container {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.calendar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.calendar-nav button {
+    background-color: var(--light-gray);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-nav button:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--light-gray);
+    padding: 0.5rem;
+}
+
+.day-header {
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.day-number {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.day-event {
+    background-color: var(--primary-red);
+    color: var(--white);
+    font-size: 0.7rem;
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+    border-radius: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 4rem 0 2rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer-logo-img {
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+.footer-about p {
+    color: var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+.footer-title {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.footer-title:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: var(--primary-red);
+    bottom: -10px;
+    left: 0;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+    color: var(--light-gray);
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-red);
+}
+
+.footer-newsletter p {
+    color: var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-family: 'Inter', sans-serif;
+}
+
+.newsletter-btn {
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    padding: 0 1rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background-color: var(--dark-red);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    background-color: var(--dark-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-red);
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--dark-gray);
+    text-align: center;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+    
+    .day-event {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .filter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-input, .filter-select, .filter-btn {
+        width: 100%;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        font-size: 0.8rem;
+    }
+    
+    .day-event {
+        display: none;
+    }
+    
+    .calendar-day.has-event {
+        background-color: rgba(126, 39, 47, 0.1);
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-grid {
+        display: none;
+    }
+    
+    .calendar-list {
+        display: block;
+    }
+    
+    .calendar-list-item {
+        display: flex;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .calendar-list-date {
+        flex: 0 0 70px;
+        font-weight: 700;
+    }
+    
+    .calendar-list-events {
+        flex: 1;
+    }
+    
+    .calendar-list-event {
+        margin-bottom: 0.5rem;
+        padding-left: 1rem;
+        border-left: 3px solid var(--primary-red);
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-gray);
+    z-index: 10;
+}
+
+.modal-header {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    color: var(--primary-red);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.event-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+}
+
+.event-info-item {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.event-info-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(126, 39, 47, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-red);
+    margin-right: 1rem;
+}
+
+.event-info-text h4 {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.25rem;
+}
+
+.event-info-text p {
+    font-weight: 600;
+}
+
+.event-description-full {
+    margin-bottom: 2rem;
+}
+
+.event-image-full {
+    width: 100%;
+    height: 300px;
+    background-color: var(--light-gray);
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+.modal-footer {
+    padding: 1rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.share-btn {
+    width: 36px;
+    height: 36px;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-gray);
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+/* Calendar List View (Mobile) */
+.calendar-list {
+    display: none;
+    padding: 1rem 0;
+}
+
+/* For the lightbox gallery */
+.sl-overlay {
+    background-color: var(--black) !important;
+}
+
+.sl-wrapper .sl-close {
+    color: var(--white) !important;
+}
+
+.sl-wrapper .sl-navigation button {
+    color: var(--white) !important;
+}
+
+.sl-wrapper .sl-counter {
+    color: var(--white) !important;
+}
