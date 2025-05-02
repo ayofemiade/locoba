@@ -112,8 +112,9 @@ header {
     align-items: center;
 }
 
-.logo img {
-    height: 50px;
+.logo-img {
+    height: 50px; /* Maintains the same height as the previous placeholder */
+    width: auto; /* Maintains aspect ratio */
 }
 
 .logo-text {
@@ -131,6 +132,7 @@ nav ul {
 
 nav ul li {
     margin-left: 1.5rem;
+    margin-right: 0;
 }
 
 nav ul li a {
