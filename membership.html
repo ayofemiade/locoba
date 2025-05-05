@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership - LOCOBA - Loyola Old Boys Association</title>
+    <title>Join Now - Loyola Old Boys Association</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -22,15 +22,14 @@
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="executives.html">Executives</a></li>
-                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="membership.html" class="active">Membership</a></li>
                     <li><a href="events.html">Events</a></li>
-                    <li><a href="directory.html">Directory</a></li>
+                    <!-- <li><a href="#directory">Directory</a></li> -->
                     <li><a href="donations.html">Donations</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -38,382 +37,157 @@
         </div>
     </header>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Join Hero Section -->
+    <section class="join-hero">
         <div class="container">
-            <h1>Join Our Vibrant Community</h1>
-            <p>Become a member of the Loyola Old Boys Association and reconnect with your alma mater and fellow alumni.</p>
+            <h1>Join the Loyola Old Boys Association</h1>
+            <p>Reconnect with your alma mater, expand your professional network, and give back to the institution that helped shape your future. Be part of a community that spans generations of Loyolans.</p>
         </div>
     </section>
 
-    <!-- Membership Benefits Section -->
+    <!-- Membership Form Section -->
+    <section class="membership-section" id="membership-form">
+        <div class="container">
+            <h2 class="section-title">Membership Application</h2>
+            
+            <div class="form-container">
+                <form id="membershipForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName" class="required-label">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <div class="error-message">Please enter your full name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="required-label">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="required-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <div class="error-message">Please enter a valid phone number</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="graduationYear" class="required-label">Graduation Year</label>
+                            <select id="graduationYear" name="graduationYear" required>
+                                <option value="">Select Year</option>
+                                <script>
+                                    const currentYear = new Date().getFullYear();
+                                    for (let year = currentYear; year >= 1950; year--) {
+                                        document.write(`<option value="${year}">${year}</option>`);
+                                    }
+                                </script>
+                            </select>
+                            <div class="error-message">Please select your graduation year</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation" class="required-label">Current Occupation</label>
+                        <input type="text" id="occupation" name="occupation" required>
+                        <div class="error-message">Please enter your current occupation</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="required-label">Why do you want to join?</label>
+                        <textarea id="message" name="message" required></textarea>
+                        <div class="error-message">Please tell us why you want to join</div>
+                    </div>
+                    
+                    <div class="form-note">
+                        Fields marked with <span>*</span> are required
+                    </div>
+                    
+                    <div class="submit-container">
+                        <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="container">
             <h2 class="section-title">Membership Benefits</h2>
             
             <div class="benefits-container">
-                <div class="benefit-card">
+                <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3 class="benefit-title">Networking</h3>
-                    <p class="benefit-desc">Connect with a vast network of alumni from diverse fields and industries across the globe.</p>
+                    <p class="benefit-text">Connect with fellow alumni across different generations and industries to expand your personal and professional network.</p>
                 </div>
                 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="benefit-title">Mentorship</h3>
-                    <p class="benefit-desc">Participate in our mentorship program, either as a mentor or mentee, to foster professional growth.</p>
-                </div>
-                
-                <div class="benefit-card">
+                <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-calendar-alt"></i>
                     </div>
-                    <h3 class="benefit-title">Events Access</h3>
-                    <p class="benefit-desc">Gain priority access to all LOCOBA events, including reunions, networking sessions, and workshops.</p>
+                    <h3 class="benefit-title">Exclusive Events</h3>
+                    <p class="benefit-text">Get access to alumni-only events, including reunions, workshops, seminars, and social gatherings.</p>
                 </div>
                 
-                <div class="benefit-card">
+                <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <h3 class="benefit-title">Career Opportunities</h3>
-                    <p class="benefit-desc">Exclusive access to job postings and career advancement opportunities from our alumni network.</p>
+                    <p class="benefit-text">Access to job postings, career counseling, and professional development resources through our alumni network.</p>
                 </div>
                 
-                <div class="benefit-card">
+                <div class="benefit-item">
                     <div class="benefit-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-hand-holding-heart"></i>
                     </div>
-                    <h3 class="benefit-title">School Engagement</h3>
-                    <p class="benefit-desc">Stay connected with Loyola through school updates, campus events, and volunteer opportunities.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <h3 class="benefit-title">Special Discounts</h3>
-                    <p class="benefit-desc">Enjoy special discounts from businesses owned by alumni and partner establishments.</p>
+                    <h3 class="benefit-title">Give Back</h3>
+                    <p class="benefit-text">Opportunities to mentor current students, contribute to scholarships, and support various school initiatives.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
         <div class="container">
-            <h2 class="section-title">Membership Options</h2>
+            <h2 class="section-title">What Our Members Say</h2>
             
-            <div class="pricing-container">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-type">Basic</h3>
-                        <div class="pricing-price">Free</div>
-                        <div class="pricing-period">Lifetime</div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Access to Alumni Directory</li>
-                            <li><i class="fas fa-check"></i> Quarterly Newsletter</li>
-                            <li><i class="fas fa-check"></i> Access to General Events</li>
-                            <li><i class="fas fa-check"></i> Basic Profile on Directory</li>
-                            <li><i class="fas fa-times"></i> Career Services</li>
-                            <li><i class="fas fa-times"></i> Mentorship Program</li>
-                            <li><i class="fas fa-times"></i> Exclusive Events</li>
-                        </ul>
-                        <div class="pricing-cta">
-                            <a href="#registration-form" class="btn btn-secondary">Register Now</a>
-                        </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Joining LOCOBA has been one of the best decisions I've made. I've reconnected with old classmates and made valuable new connections across different graduating classes. The network has even helped me advance in my career!</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <div class="testimonial-name">Robert Chen</div>
+                        <div class="testimonial-position">Class of 2005 | Software Engineer</div>
                     </div>
                 </div>
-                
-                <div class="pricing-card featured">
-                    <div class="featured-tag">Popular</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-type">Premium</h3>
-                        <div class="pricing-price">$50</div>
-                        <div class="pricing-period">Annual</div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Access to Alumni Directory</li>
-                            <li><i class="fas fa-check"></i> Monthly Newsletter</li>
-                            <li><i class="fas fa-check"></i> Access to All Events</li>
-                            <li><i class="fas fa-check"></i> Enhanced Profile on Directory</li>
-                            <li><i class="fas fa-check"></i> Career Services & Job Board</li>
-                            <li><i class="fas fa-check"></i> Mentorship Program</li>
-                            <li><i class="fas fa-check"></i> VIP Access to Exclusive Events</li>
-                        </ul>
-                        <div class="pricing-cta">
-                            <a href="#registration-form" class="btn btn-primary">Register Now</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-type">Lifetime</h3>
-                        <div class="pricing-price">$500</div>
-                        <div class="pricing-period">One-time</div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> All Premium Benefits</li>
-                            <li><i class="fas fa-check"></i> No Annual Renewal Required</li>
-                            <li><i class="fas fa-check"></i> Priority Event Registration</li>
-                            <li><i class="fas fa-check"></i> Recognition on Website</li>
-                            <li><i class="fas fa-check"></i> Commemorative LOCOBA Gift</li>
-                            <li><i class="fas fa-check"></i> Special Annual Dinner</li>
-                            <li><i class="fas fa-check"></i> Dedicated Support</li>
-                        </ul>
-                        <div class="pricing-cta">
-                            <a href="#registration-form" class="btn btn-secondary">Register Now</a>
-                        </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-quote">Being part of LOCOBA allows me to give back to the institution that gave me so much. I now mentor young Loyolans and help them navigate their early careers. The sense of community is incredible!</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar"></div>
+                    <div>
+                        <div class="testimonial-name">Maria Rodriguez</div>
+                        <div class="testimonial-position">Class of 1998 | Marketing Director</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Registration Form Section -->
-    <section class="form-section" id="registration-form">
-        <div class="container">
-            <h2 class="section-title">Membership Registration</h2>
-            
-            <div class="form-container">
-                <h3 class="form-title">Personal Information</h3>
-                <form id="membershipForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName" class="form-label">First Name *</label>
-                            <input type="text" id="firstName" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName" class="form-label">Last Name *</label>
-                            <input type="text" id="lastName" class="form-input" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" id="phone" class="form-input">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="graduationYear" class="form-label">Graduation Year *</label>
-                            <input type="number" id="graduationYear" class="form-input" min="1950" max="2025" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="house" class="form-label">House (Optional)</label>
-                            <select id="house" class="form-select">
-                                <option value="">Select your House</option>
-                                <option value="Berchmans">Berchmans</option>
-                                <option value="Britto">Britto</option>
-                                <option value="Gonzaga">Gonzaga</option>
-                                <option value="Xavier">Xavier</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <h3 class="form-title">Professional Information</h3>
-                    
-                    <div class="form-group">
-                        <label for="profession" class="form-label">Current Profession</label>
-                        <input type="text" id="profession" class="form-input">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="company" class="form-label">Company/Organization</label>
-                            <input type="text" id="company" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="jobTitle" class="form-label">Job Title</label>
-                            <input type="text" id="jobTitle" class="form-input">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="industry" class="form-label">Industry</label>
-                        <select id="industry" class="form-select">
-                            <option value="">Select your Industry</option>
-                            <option value="Technology">Technology</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Education">Education</option>
-                            <option value="Manufacturing">Manufacturing</option>
-                            <option value="Retail">Retail</option>
-                            <option value="Government">Government</option>
-                            <option value="Non-profit">Non-profit</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <h3 class="form-title">Address Information</h3>
-                    
-                    <div class="form-group">
-                        <label for="addressLine1" class="form-label">Address Line 1</label>
-                        <input type="text" id="addressLine1" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="addressLine2" class="form-label">Address Line 2</label>
-                        <input type="text" id="addressLine2" class="form-input">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city" class="form-label">City</label>
-                            <input type="text" id="city" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="state" class="form-label">State/Province</label>
-                            <input type="text" id="state" class="form-input">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="postalCode" class="form-label">Postal/ZIP Code</label>
-                            <input type="text" id="postalCode" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="country" class="form-label">Country</label>
-                            <input type="text" id="country" class="form-input">
-                        </div>
-                    </div>
-                    
-                    <h3 class="form-title">Membership Selection</h3>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Select Membership Type *</label>
-                        <div class="form-check">
-                            <input type="radio" id="basicMembership" name="membershipType" class="form-check-input" value="basic" required>
-                            <label for="basicMembership">Basic Membership (Free)</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="premiumMembership" name="membershipType" class="form-check-input" value="premium">
-                            <label for="premiumMembership">Premium Membership ($50/year)</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" id="lifetimeMembership" name="membershipType" class="form-check-input" value="lifetime">
-                            <label for="lifetimeMembership">Lifetime Membership ($500)</label>
-                            </div>
-
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="additionalInfo" class="form-label">Additional Information</label>
-                                <textarea id="additionalInfo" class="form-textarea" placeholder="Share any other information you'd like us to know (e.g., achievements, interests, how you want to contribute to LOCOBA)"></textarea>
-                            </div>
-                            
-                            <div class="form-check">
-                                <input type="checkbox" id="privacyPolicy" class="form-check-input" required>
-                                <label for="privacyPolicy">I agree to the <a href="#">Privacy Policy</a> and allow LOCOBA to store and process my personal information.</label>
-                            </div>
-                            
-                            <div class="form-check">
-                                <input type="checkbox" id="newsletter" class="form-check-input">
-                                <label for="newsletter">I would like to receive newsletters and updates from LOCOBA.</label>
-                            </div>
-                            
-                            <div class="form-actions">
-                                <button type="submit" class="btn btn-primary">Submit Registration</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        
-            <!-- FAQ Section -->
-            <section class="section">
-                <div class="container">
-                    <h2 class="section-title">Frequently Asked Questions</h2>
-                    
-                    <div style="max-width: 800px; margin: 0 auto;">
-                        <div style="margin-bottom: 2rem;">
-                            <h3>How do I renew my membership?</h3>
-                            <p>Premium members will receive a renewal notice via email one month before their membership expires. You can renew through your account dashboard or by contacting our membership team.</p>
-                        </div>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <h3>Can I upgrade my membership later?</h3>
-                            <p>Yes, you can upgrade from Basic to Premium or Lifetime membership at any time through your member dashboard or by contacting us.</p>
-                        </div>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <h3>Are membership fees tax-deductible?</h3>
-                            <p>A portion of your membership fee may be tax-deductible as a charitable contribution. Please consult with your tax advisor for specific information.</p>
-                        </div>
-                        
-                        <div style="margin-bottom: 2rem;">
-                            <h3>What payment methods are accepted?</h3>
-                            <p>We accept all major credit cards, PayPal, and bank transfers for membership payments.</p>
-                        </div>
-                        
-                        <div>
-                            <h3>How can I get involved after becoming a member?</h3>
-                            <p>After joining, you'll receive a welcome email with information about upcoming events, volunteer opportunities, and ways to connect with fellow alumni.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-            <!-- Testimonials Section -->
-            <section class="section" style="background-color: var(--light-gray);">
-                <div class="container">
-                    <h2 class="section-title">What Our Members Say</h2>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
-                        <div style="background-color: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-                            <p style="font-style: italic; margin-bottom: 1rem;">"Joining LOCOBA has been one of the best decisions I've made. The networking opportunities have been invaluable for my career, and reconnecting with old classmates brings back wonderful memories."</p>
-                            <p style="font-weight: 700;">- John D., Class of 1992</p>
-                        </div>
-                        
-                        <div style="background-color: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-                            <p style="font-style: italic; margin-bottom: 1rem;">"As a lifetime member, I've had the privilege of watching LOCOBA grow and make a real difference in the lives of alumni and current students. The events and mentorship programs are exceptionally well organized."</p>
-                            <p style="font-weight: 700;">- Michael R., Class of 1985</p>
-                        </div>
-                        
-                        <div style="background-color: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-                            <p style="font-style: italic; margin-bottom: 1rem;">"The premium membership has been worth every penny. I've made professional connections that led to new business opportunities, and I love giving back through the mentorship program."</p>
-                            <p style="font-weight: 700;">- Sarah T., Class of 2003</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        
-            <!-- Call to Action -->
-            <section class="section" style="background-color: var(--primary-red); color: var(--white); text-align: center;">
-                <div class="container">
-                    <h2 style="margin-bottom: 1.5rem; font-size: 2.5rem;">Ready to Join the Loyola Old Boys Association?</h2>
-                    <p style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.1rem;">Become part of a vibrant community that celebrates the legacy of Loyola while creating opportunities for personal and professional growth.</p>
-                    <a href="#registration-form" class="btn" style="background-color: var(--white); color: var(--primary-red); font-weight: 700; padding: 1rem 2rem; font-size: 1.1rem;">Register Now</a>
-                </div>
-            </section>
-        
-         
-
-
-                         <!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container footer-container">
             <div class="footer-about">
                 <div class="footer-logo">
-                    <div style="width: 40px; height: 40px; background-color: #7E272F; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 50%;">L</div>
-                    <div style="color: white; font-weight: 800; margin-left: 0.5rem;">LOCOBA</div>
+                    <img src="image/logo.jpg" alt="Loyola Logo" class="footer-logo-img">
                 </div>
                 <p>Connecting generations of Loyola alumni to foster meaningful relationships and support our alma mater.</p>
                 <div class="social-links">
@@ -428,10 +202,10 @@
                 <h3 class="footer-title">Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="executives.html">Executives</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#events">Events</a></li>
                     <li><a href="#membership">Membership</a></li>
-                    <li><a href="#directory">Directory</a></li>
+                    <li><a href="#directory">Contact</a></li>
                 </ul>
             </div>
             
@@ -464,4 +238,3 @@
     <script src="js/membership.js"></script>
 </body>
 </html>
-                        
