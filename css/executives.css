@@ -152,11 +152,11 @@
         
         /* Page Title Section */
         .page-title-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/300') no-repeat center center;
-            background-size: cover;
-            color: var(--white);
-            padding: 4rem 0;
-            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive.jpeg') no-repeat center center;
+        background-size: cover;
+        color: var(--white);
+        padding: 12rem 0;
+        text-align: center;
         }
 
         .page-title-section h1 {

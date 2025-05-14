@@ -152,10 +152,10 @@ nav ul li a:hover {
 
 /* Page Banner */
 .page-banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/400') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../image/perfect.jpeg') no-repeat center center;
     background-size: cover;
     color: var(--white);
-    padding: 5rem 0;
+    padding: 10rem 0;
     text-align: center;
 }
 
@@ -191,6 +191,13 @@ nav ul li a:hover {
     gap: 3rem;
 }
 
+/* Add responsive grid for smaller screens */
+@media screen and (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .about-content h2 {
     font-size: 2.2rem;
     color: var(--black);
@@ -213,13 +220,47 @@ nav ul li a:hover {
 }
 
 .about-image {
-    background-color: var(--light-gray);
     border-radius: 8px;
     overflow: hidden;
     height: 100%;
-    min-height: 400px;
 }
 
+
+/* New styles for the responsive image with overlay */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Creates a square aspect ratio by default */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.about-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This maintains aspect ratio while filling the container */
+    transition: transform 0.3s ease;
+}
+
+/* This creates the dark overlay */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 0.4 opacity black overlay */
+    z-index: 1;
+}
+
+/* Optional hover effect */
+.image-container:hover .about-img {
+    transform: scale(1.05);
+}
 /* Timeline Section */
 .timeline-section {
     background-color: var(--white);
