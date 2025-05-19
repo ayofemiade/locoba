@@ -75,6 +75,16 @@
         color: var(--white);
     }
 
+    .btn-secondary1 {
+        background-color: transparent;
+        border: 2px solid var(--light-gray);
+        color: var(--light-gray);
+    }
+
+    .btn-secondary1:hover {
+        background-color: var(--light-gray);
+        color: var(--black);
+    }
     .btn-secondary {
         background-color: transparent;
         border: 2px solid var(--black);
@@ -245,9 +255,20 @@ nav ul li a:hover {
         background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/image-asset.jpeg') no-repeat center center;
         background-size: cover;
         color: var(--white);
-        padding: 8rem 0;
+        padding: 6rem 0;
         text-align: center;
     }
+    
+    /* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .hero {
+        /* Change background position to show more center/top of image for portrait view */
+        background-position: center top;
+        padding: 2rem 0;
+        /* You can also use a different image optimized for mobile if needed */
+         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/image-asset-mobile.jpg'); 
+    }
+}
 
     .hero h1 {
         font-size: 3rem;

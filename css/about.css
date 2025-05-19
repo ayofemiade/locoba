@@ -158,6 +158,16 @@ nav ul li a:hover {
     padding: 10rem 0;
     text-align: center;
 }
+    /* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .page-banner {
+        /* Change background position to show more center/top of image for portrait view */
+        background-position: center top;
+        padding: 8rem 0;
+        /* You can also use a different image optimized for mobile if needed */
+         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/perfect-mobile.jpg'); 
+    }
+}
 
 .page-banner h1 {
     font-size: 3rem;

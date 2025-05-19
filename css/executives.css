@@ -159,6 +159,18 @@
         text-align: center;
         }
 
+           /* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .page-title-section {
+        /* Change background position to show more center/top of image for portrait view */
+        background-position: center top;
+        padding: 10rem 0;
+        /* You can also use a different image optimized for mobile if needed */
+         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive-mobile.png'); 
+    }
+}
+
+
         .page-title-section h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
