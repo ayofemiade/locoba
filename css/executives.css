@@ -40,12 +40,14 @@
             color: var(--dark-red);
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
+        /* Container Responsiveness */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 
         .section {
             padding: 4rem 0;
@@ -160,7 +162,7 @@
         }
 
            /* Add media query for smaller screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 400px) {
     .page-title-section {
         /* Change background position to show more center/top of image for portrait view */
         background-position: center top;
@@ -209,104 +211,266 @@
             font-weight: 600;
         }
 
-        /* Executive Team Section */
-        .executives-section {
-            padding: 4rem 0;
-        }
+        /* Executive Team and Trustees Section Responsive Styles */
+.executives-section, .trustees-section {
+    padding: 3rem 0;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: var(--black);
-            position: relative;
-        }
+.trustees-section {
+    background-color: var(--light-gray);
+}
 
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-red);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--black);
+    position: relative;
+}
 
-        .section-subtitle {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 1.2rem;
-            color: var(--dark-gray);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: clamp(60px, 10vw, 80px);
+    height: 4px;
+    background-color: var(--primary-red);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .executives-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    color: var(--dark-gray);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
 
-        .executive-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+/* Base executive container */
+.executives-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 3rem;
+    padding: 0 10px;
+}
 
-        .executive-card:hover {
-            transform: translateY(-5px);
-        }
+/* Executive Card Styling */
+.executive-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-        .executive-image {
-            height: 300px;
-            background-color: var(--light-gray);
-            position: relative;
-        }
+.executive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
 
-        .executive-role {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(126, 39, 47, 0.9);
-            color: var(--white);
-            padding: 0.5rem;
-            text-align: center;
-            font-weight: 600;
-        }
+.executive-image {
+    height: 250px;
+    background-color: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+}
 
-        .executive-details {
-            padding: 1.5rem;
-        }
+/* Additional styling for image containers to ensure proper display */
+.executive-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.3s ease;
+    display: block; /* Ensures no extra space */
+}
 
-        .executive-name {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
+/* Fix for missing images - provide default styling */
+.executive-image:not(:has(img)) {
+    background-color: #f0f0f0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f0f0"/><path d="M30,40 Q50,20 70,40 L70,60 Q50,80 30,60 Z" stroke="%23cccccc" fill="%23dddddd"/><circle cx="50" cy="30" r="10" stroke="%23cccccc" fill="%23dddddd"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+}
 
-        .executive-class {
-            color: var(--primary-red);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+.executive-card:hover .executive-image img {
+    transform: scale(1.05);
+}
 
-        .executive-bio {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
+.executive-role {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(126, 39, 47, 0.9);
+    color: var(--white);
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
 
-        /* Trustees Section - Inherits most styles from executives-section */
-    .trustees-section {
-        background-color: var(--light-gray);
-        padding: 4rem 0;
+.executive-details {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.executive-name {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    margin-bottom: 0.5rem;
+    color: var(--black);
+}
+
+.executive-class {
+    color: var(--primary-red);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+}
+
+.executive-bio {
+    color: var(--dark-gray);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    margin-bottom: 1rem;
+}
+
+/* Media Queries for Better Responsiveness */
+@media screen and (max-width: 1200px) {
+    .executives-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
     }
     
+    .executive-image {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .executives-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .executive-image {
+        height: 180px;
+    }
+    
+    .executive-details {
+        padding: 1.2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .executives-section, .trustees-section {
+        padding: 2.5rem 0;
+    }
+    
+    .executives-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .executive-image {
+        height: 170px;
+    }
+    
+    .executive-details {
+        padding: 1rem;
+    }
+    
+    .executive-name {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .executives-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 0 5px;
+    }
+    
+    .executive-image {
+        height: 180px;
+    }
+    
+    .section-title {
+        margin-bottom: 1.5rem;
+    }
+    
+    .section-subtitle {
+        margin-bottom: 1.5rem;
+    }
+    
+    .executive-details {
+        padding: 1rem 0.8rem;
+    }
+    
+    .executive-name {
+        font-size: 1rem;
+    }
+    
+    .executive-class {
+        font-size: 0.8rem;
+    }
+    
+    .executive-role {
+        font-size: 0.85rem;
+        padding: 0.4rem;
+    }
+}
+
+/* Additional Enhancements for Small Screens */
+@media screen and (max-width: 320px) {
+    .executive-image {
+        height: 200px;
+    }
+    
+    .executive-details {
+        padding: 1rem;
+    }
+}
+
+/* Accessibility and Print Media */
+@media (prefers-reduced-motion: reduce) {
+    .executive-card,
+    .executive-card:hover,
+    .executive-image img,
+    .executive-card:hover .executive-image img {
+        transition: none;
+        transform: none;
+    }
+}
+
+@media print {
+    .executives-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .executive-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .executive-image {
+        height: 200px;
+    }
+    
+    .section-title:after {
+        display: none;
+    }
+}
     
         /* Tenure Section */
         .tenure-section {

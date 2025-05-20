@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const events = [
     { date: '2025-07-31', title: 'Founders Day', time: 'All Day' },
     { date: '2025-08-15', title: 'Elders Forum and Cocktail', time: '6:00 PM' },
-    { date: '2025-08-16', title: 'Annual General Meeting (AGM)', time: '10:00 AM' },
+    { date: '2025-08-16', title: 'Annual General Meeting (AGM', time: '10:00 AM' },
   
   ];
 

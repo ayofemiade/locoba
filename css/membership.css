@@ -156,7 +156,7 @@
         text-align: center;
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 500px) {
     .join-hero {
         /* Change background position to show more center/top of image for portrait view */
         background-position: center top;

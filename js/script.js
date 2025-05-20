@@ -7,60 +7,135 @@
        navMenu.classList.toggle('active');
    });
    
-   // Events Slider
-   const eventsTrack = document.getElementById('eventsTrack');
-   const prevBtn = document.getElementById('prevBtn');
-   const nextBtn = document.getElementById('nextBtn');
-   
-   let slideIndex = 0;
-   const eventCards = document.querySelectorAll('.event-card');
-   const cardWidth = eventCards[0].offsetWidth + 32; // Including margins
-   const maxIndex = eventCards.length - getVisibleCards();
-   
-   function getVisibleCards() {
-       if (window.innerWidth < 768) return 1;
-       if (window.innerWidth < 992) return 2;
-       return 3;
-   }
-   
-   function updateSlider() {
-       eventsTrack.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
-   }
-   
-   function checkButtons() {
-       prevBtn.disabled = slideIndex <= 0;
-       prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
-       
-       nextBtn.disabled = slideIndex >= maxIndex;
-       nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
-   }
-   
-   prevBtn.addEventListener('click', () => {
-       if (slideIndex > 0) {
-           slideIndex--;
-           updateSlider();
-           checkButtons();
-       }
-   });
-   
-   nextBtn.addEventListener('click', () => {
-       if (slideIndex < maxIndex) {
-           slideIndex++;
-           updateSlider();
-           checkButtons();
-       }
-   });
-   
-   // Initialize
-   checkButtons();
-   
-   // Handle window resize
-   window.addEventListener('resize', () => {
-       const newMaxIndex = eventCards.length - getVisibleCards();
-       slideIndex = Math.min(slideIndex, newMaxIndex);
-       updateSlider();
-       checkButtons();
-   });
+   // Enhanced events slider JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const eventsTrack = document.getElementById('eventsTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (!eventsTrack || !prevBtn || !nextBtn) {
+        console.error('Slider elements not found');
+        return;
+    }
+    
+    let slideIndex = 0;
+    const eventCards = document.querySelectorAll('.event-card');
+    
+    if (eventCards.length === 0) {
+        console.error('No event cards found');
+        return;
+    }
+    
+    // Function to calculate card width including margins
+    function getCardWidth() {
+        const card = eventCards[0];
+        const style = window.getComputedStyle(card);
+        const width = card.offsetWidth;
+        const marginLeft = parseInt(style.marginLeft) || 0;
+        const marginRight = parseInt(style.marginRight) || 0;
+        return width + marginLeft + marginRight;
+    }
+    
+    // Function to determine visible cards based on screen width
+    function getVisibleCards() {
+        if (window.innerWidth < 768) return 1;
+        if (window.innerWidth < 992) return 2;
+        return 3;
+    }
+    
+    // Update slider position
+    function updateSlider() {
+        if (eventsTrack) {
+            const cardWidth = getCardWidth();
+            eventsTrack.style.transform = `translateX(-${slideIndex * cardWidth}px)`;
+        }
+    }
+    
+    // Check and update button states
+    function checkButtons() {
+        const maxIndex = Math.max(0, eventCards.length - getVisibleCards());
+        
+        if (prevBtn) {
+            prevBtn.disabled = slideIndex <= 0;
+            prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
+        }
+        
+        if (nextBtn) {
+            nextBtn.disabled = slideIndex >= maxIndex;
+            nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
+        }
+    }
+    
+    // Event listeners for buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (slideIndex > 0) {
+                slideIndex--;
+                updateSlider();
+                checkButtons();
+            }
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = eventCards.length - getVisibleCards();
+            if (slideIndex < maxIndex) {
+                slideIndex++;
+                updateSlider();
+                checkButtons();
+            }
+        });
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Add debounce to avoid excessive calculations during resize
+        clearTimeout(window.resizeTimer);
+        window.resizeTimer = setTimeout(() => {
+            const maxIndex = Math.max(0, eventCards.length - getVisibleCards());
+            slideIndex = Math.min(slideIndex, maxIndex);
+            updateSlider();
+            checkButtons();
+        }, 250);
+    });
+    
+    // Initialize slider
+    checkButtons();
+    
+    // Add touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    eventsTrack.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    eventsTrack.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum swipe distance in pixels
+        
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left -> next slide
+            if (slideIndex < eventCards.length - getVisibleCards()) {
+                slideIndex++;
+                updateSlider();
+                checkButtons();
+            }
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right -> previous slide
+            if (slideIndex > 0) {
+                slideIndex--;
+                updateSlider();
+                checkButtons();
+            }
+        }
+    }
+});
    
    // Smooth Scrolling for Anchor Links
    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
