@@ -391,6 +391,7 @@
 
 .cta-button:hover {
     background-color: var(--dark-red);
+    color: var(--white);
 }
 
         /* Footer Styles */
