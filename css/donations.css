@@ -298,68 +298,100 @@
             margin-bottom: 1rem;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            background-color: var(--soft-white);
-            padding: 4rem 0;
-        }
+       /* Donation Impact Section */
+.donation-impact-section {
+    background-color: var(--soft-white);
+    padding: 4rem 0;
+}
 
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+.impact-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+}
 
-        .testimonial-card {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
+.impact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .testimonial-quote {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-left: 2rem;
-        }
+.impact-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
 
-        .testimonial-quote:before {
-            content: "\f10d";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: var(--primary-red);
-            font-size: 1.5rem;
-            opacity: 0.5;
-        }
+.impact-card:hover {
+    transform: translateY(-5px);
+}
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
+.impact-icon {
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+}
 
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--light-gray);
-            margin-right: 1rem;
-        }
+.impact-title {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
 
-        .author-info h4 {
-            margin-bottom: 0.25rem;
-        }
+.impact-stats {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
 
-        .author-info p {
-            color: var(--dark-gray);
-            font-size: 0.9rem;
-        }
+.impact-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+}
+
+.impact-period {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.impact-description {
+    color: var(--dark-gray);
+}
+
+.impact-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.impact-footer p {
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--dark-red);
+}
 
         /* Footer Styles */
         footer {
