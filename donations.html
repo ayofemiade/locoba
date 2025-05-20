@@ -30,7 +30,6 @@
                     <li><a href="executives.html">Executives</a></li>
                     <li><a href="membership.html">Membership</a></li>
                     <li><a href="events.html">Events</a></li>
-                    <!-- <li><a href="directory.html">Directory</a></li> -->
                     <li><a href="donations.html" class="active">Donations</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -42,220 +41,70 @@
     <section class="hero">
         <div class="container">
             <h1>Support Loyola, Give Back Today</h1>
-            <p>Your donation helps sustain our alma mater's legacy and supports future generations of Loyolans.</p>
-            <div class="hero-buttons">
-                <a href="#donate-form" class="btn btn-primary btn-large">Donate Now</a>
-            </div>
+            <p>Your donation helps sustain our alma mater's legacy and supports future generations of Loyolans. Together, we can ensure the continued excellence of Loyola College Ibadan.</p>
         </div>
     </section>
 
-    <!-- Progress Bar Section -->
-    <section class="progress-section" id="impact">
-        <div class="container">
-            <h2 class="section-title">Our Fundraising Progress</h2>
-            
-            <div class="progress-container">
-                <div class="progress-info">
-                    <div>Raised: <strong>$650,000</strong></div>
-                    <div>Goal: <strong>$1,000,000</strong></div>
-                </div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar"></div>
-                </div>
-                <p>Help us reach our annual fundraising goal to support various initiatives for Loyola School.</p>
-                
-                <div class="progress-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">350+</div>
-                        <div class="stat-label">Donors This Year</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">$2,500</div>
-                        <div class="stat-label">Average Donation</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label">Days Left</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Donation Tiers Section -->
-    <section class="donation-tiers">
-        <div class="container">
-            <h2 class="section-title">Choose Your Impact</h2>
-            
-            <div class="tiers-container">
-                <div class="tier-card">
-                    <div class="tier-header">
-                        <div class="tier-amount">$50</div>
-                        <div class="tier-name">Scholarship Fund</div>
-                    </div>
-                    <div class="tier-body">
-                        <p class="tier-description">Support promising students who need financial assistance to receive a quality Loyola education.</p>
-                        <ul class="tier-features">
-                            <li>Helps provide textbooks for one student</li>
-                            <li>Recognition in our annual donor list</li>
-                            <li>Donor certificate of appreciation</li>
-                        </ul>
-                        <a href="#donate-form" class="btn btn-primary" onclick="setAmount(50)">Donate $50</a>
-                    </div>
-                </div>
-                
-                <div class="tier-card">
-                    <div class="tier-header">
-                        <div class="tier-amount">$100</div>
-                        <div class="tier-name">School Renovations</div>
-                    </div>
-                    <div class="tier-body">
-                        <p class="tier-description">Contribute to the ongoing renovation and modernization of Loyola's facilities and classrooms.</p>
-                        <ul class="tier-features">
-                            <li>Helps upgrade classroom equipment</li>
-                            <li>Name featured on renovation plaque</li>
-                            <li>Invitation to renovation unveiling</li>
-                        </ul>
-                        <a href="#donate-form" class="btn btn-primary" onclick="setAmount(100)">Donate $100</a>
-                    </div>
-                </div>
-                
-                <div class="tier-card">
-                    <div class="tier-header">
-                        <div class="tier-amount">$500+</div>
-                        <div class="tier-name">Legacy Donor</div>
-                    </div>
-                    <div class="tier-body">
-                        <p class="tier-description">Make a significant impact as a Legacy Donor and help shape the future of Loyola for generations to come.</p>
-                        <ul class="tier-features">
-                            <li>Dedicated brick in alumni walkway</li>
-                            <li>VIP access to all LOCOBA events</li>
-                            <li>Special recognition at annual gala</li>
-                        </ul>
-                        <a href="#donate-form" class="btn btn-primary" onclick="setAmount(500)">Donate $500</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Donation Form Section -->
-    <section class="donation-form-section" id="donate-form">
+    <!-- Donation Information Section -->
+    <section class="donation-info">
         <div class="container">
             <h2 class="section-title">Make Your Donation</h2>
             
-            <div class="form-container">
-                <form id="donationForm">
-                    <div class="form-group">
-                        <label class="form-label">Select Donation Amount</label>
+            <div class="donation-card">
+                <p>Thank you for your interest in supporting the Loyola College Ibadan Old Boys Association. Your generous contributions help us implement various projects that benefit our alma mater and strengthen our community.</p>
+                
+                <div class="bank-details">
+                    <h3>Bank Transfer Details</h3>
+                    <div class="account-info">
+                        <p><strong>Account Name:</strong> LOYOLA COLLEGE IBADAN OLD BOYS ASSOCIATION (MAIN ACC)</p>
+                        <p><strong>Bank:</strong> UNION BANK</p>
                         <div>
-                            <label class="custom-radio">
-                                <input type="radio" name="amount" value="50" id="amount50"> $50
-                            </label>
-                            <label class="custom-radio">
-                                <input type="radio" name="amount" value="100" id="amount100"> $100
-                            </label>
-                            <label class="custom-radio">
-                                <input type="radio" name="amount" value="500" id="amount500"> $500
-                            </label>
-                            <label class="custom-radio">
-                                <input type="radio" name="amount" value="other" id="amountOther"> Other
-                            </label>
+                            <strong>Account Number:</strong> 
+                            <span class="account-number" id="accountNumber">0041100283</span>
+                            <button class="copy-btn" id="copyBtn" onclick="copyAccountNumber()">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="donation-steps">
+                    <h3>How to Donate</h3>
+                    
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <p>Copy the account number above or note it down.</p>
                         </div>
                     </div>
                     
-                    <div class="form-group" id="otherAmountGroup" style="display: none;">
-                        <label class="form-label" for="otherAmount">Enter Custom Amount ($)</label>
-                        <input type="number" id="otherAmount" class="form-input" placeholder="Enter amount" min="1">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="donationPurpose">Donation Purpose</label>
-                        <select id="donationPurpose" class="form-select">
-                            <option value="scholarship">Scholarship Fund</option>
-                            <option value="renovation">School Renovations</option>
-                            <option value="general">General Fund</option>
-                            <option value="sports">Sports Programs</option>
-                            <option value="library">Library Resources</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label class="form-label" for="firstName">First Name</label>
-                                <input type="text" id="firstName" class="form-input" required>
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label class="form-label" for="lastName">Last Name</label>
-                                <input type="text" id="lastName" class="form-input" required>
-                            </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <p>Log in to your bank's mobile app, internet banking platform, or visit any bank branch.</p>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="graduationYear">Graduation Year (Optional)</label>
-                        <input type="number" id="graduationYear" class="form-input" placeholder="e.g. 2000">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Payment Method</label>
-                        <div class="payment-icons">
-                            <i class="fab fa-cc-visa"></i>
-                            <i class="fab fa-cc-mastercard"></i>
-                            <i class="fab fa-cc-amex"></i>
-                            <i class="fab fa-cc-paypal"></i>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <p>Make a transfer to the account details provided above.</p>
                         </div>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label class="form-label" for="cardNumber">Card Number</label>
-                                <input type="text" id="cardNumber" class="form-input" placeholder="**** **** **** ****" required>
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label class="form-label" for="cardExpiry">Expiry Date</label>
-                                <input type="text" id="cardExpiry" class="form-input" placeholder="MM/YY" required>
-                            </div>
-                        </div>
-                        <div class="form-col">
-                            <div class="form-group">
-                                <label class="form-label" for="cardCVC">CVC</label>
-                                <input type="text" id="cardCVC" class="form-input" placeholder="***" required>
-                            </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <p>If possible, include your name and graduation year in the transfer reference to help us properly acknowledge your donation.</p>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label class="custom-radio">
-                            <input type="checkbox" id="makeRecurring"> Make this a monthly recurring donation
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="custom-radio">
-                            <input type="checkbox" id="anonymous"> Make my donation anonymous
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="custom-radio">
-                            <input type="checkbox" id="agreeTerms" required> I agree to the terms and conditions
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Complete Donation</button>
-                </form>
+                </div>
+                
+                <div class="contact-support">
+                    <p>For any questions about donations or to inform us about your contribution, please contact our treasury department:</p>
+                    <p><i class="fas fa-envelope"></i> locobaworldwide@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +234 800 123 4567</p>
+                </div>
             </div>
         </div>
     </section>
@@ -263,39 +112,38 @@
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
-            <h2 class="section-title">Donor Testimonials</h2>
+            <h2 class="section-title">Why Alumni Give Back</h2>
             
             <div class="testimonials-container">
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">Contributing to Loyola's scholarship fund has been incredibly rewarding. Knowing that my donation helps bright students achieve their dreams gives me immense satisfaction.</p>
+                    <p class="testimonial-quote">Contributing to Loyola has been a way for me to express gratitude for the values and education I received. It's about ensuring future generations benefit from the same exceptional experience.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
                         <div class="author-info">
                             <h4>Robert Chen</h4>
-                            <p>Class of 1989, Legacy Donor</p>
+                            <p>Class of 1989</p>
                         </div>
                     </div>
                 </div>
 
-
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">My monthly contributions to the renovation fund have helped transform our alma mater's facilities. It's amazing to see the progress when I visit campus each year.</p>
+                    <p class="testimonial-quote">My monthly contributions to Loyola are investments in our shared legacy. It's rewarding to see how our collective efforts have transformed the college facilities over the years.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
                         <div class="author-info">
                             <h4>Maria Rodriguez</h4>
-                            <p>Class of 2002, Monthly Donor</p>
+                            <p>Class of 2002</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-quote">As a Legacy Donor, I've seen firsthand how our collective support has strengthened Loyola's programs and infrastructure. I'm proud to be part of this community that gives back.</p>
+                    <p class="testimonial-quote">Supporting Loyola is my way of staying connected to the institution that shaped me. Every donation, no matter how small, contributes to maintaining its excellence and traditions.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar"></div>
                         <div class="author-info">
                             <h4>Dr. James Okonkwo</h4>
-                            <p>Class of 1975, Legacy Donor</p>
+                            <p>Class of 1975</p>
                         </div>
                     </div>
                 </div>
