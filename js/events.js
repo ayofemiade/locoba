@@ -7,6 +7,7 @@ mobileMenuBtn.addEventListener('click', () => {
 });
 
 // Event Modal
+/*
 const eventModal = document.getElementById('eventModal');
 const closeModal = document.getElementById('closeModal');
 const rsvpButtons = document.querySelectorAll('[data-event]');
@@ -44,7 +45,7 @@ window.addEventListener('click', (e) => {
         eventModal.classList.remove('active');
     }
 });
-
+*/
 // Gallery Filter
 const galleryFilterButtons = document.querySelectorAll('.gallery-filter button');
 const galleryItems = document.querySelectorAll('.gallery-item');
@@ -134,25 +135,171 @@ loadMoreBtn.addEventListener('click', () => {
     }
 });
 
-// Calendar Navigation (simplified)
-const prevMonthBtn = document.getElementById('prevMonth');
-const nextMonthBtn = document.getElementById('nextMonth');
-const calendarTitle = document.querySelector('.calendar-title');
+// Calendar Navigation and Display
+document.addEventListener('DOMContentLoaded', () => {
+  const prevMonthBtn = document.getElementById('prevMonth');
+  const nextMonthBtn = document.getElementById('nextMonth');
+  const calendarTitle = document.querySelector('.calendar-title');
+  const calendarGrid = document.querySelector('.calendar-grid');
+  const calendarList = document.querySelector('.calendar-list');
 
-const months = [
+  const months = [
     'January', 'February', 'March', 'April', 
     'May', 'June', 'July', 'August',
     'September', 'October', 'November', 'December'
-];
+  ];
 
-let currentMonthIndex = 3; // April
+  // Current date info
+  const currentDate = new Date();
+  let currentYear = 2025;
+  let currentMonthIndex = 6; // july as starting point
 
-prevMonthBtn.addEventListener('click', () => {
-    currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
-    calendarTitle.textContent = `${months[currentMonthIndex]} 2025`;
-});
+  // Special events for the year
+  const events = [
+    { date: '2025-07-31', title: 'Founders Day', time: 'All Day' },
+    { date: '2025-08-15', title: 'Elders Forum and Cocktail', time: '6:00 PM' },
+    { date: '2025-08-16', title: 'Annual General Meeting (AGM)', time: '10:00 AM' },
+  
+  ];
 
-nextMonthBtn.addEventListener('click', () => {
-    currentMonthIndex = (currentMonthIndex + 1) % 12;
-    calendarTitle.textContent = `${months[currentMonthIndex]} 2025`;
+  // Function to determine the number of days in a month
+  function getDaysInMonth(month, year) {
+    // Month is 0-indexed in JavaScript's Date object
+    return new Date(year, month + 1, 0).getDate();
+  }
+
+  // Function to determine the first day of the month (0 = Sunday, 1 = Monday, etc.)
+  function getFirstDayOfMonth(month, year) {
+    return new Date(year, month, 1).getDay();
+  }
+
+  // Function to render the calendar
+  function renderCalendar(month, year) {
+    // Update the calendar title
+    calendarTitle.textContent = `${months[month]} ${year}`;
+    
+    // Clear the grid
+    calendarGrid.innerHTML = '';
+    
+    // Add day headers
+    const dayHeaders = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    dayHeaders.forEach(day => {
+      const dayHeader = document.createElement('div');
+      dayHeader.className = 'day-header';
+      dayHeader.textContent = day;
+      calendarGrid.appendChild(dayHeader);
+    });
+    
+    // Get the number of days in the month and the first day of the month
+    const daysInMonth = getDaysInMonth(month, year);
+    const firstDay = getFirstDayOfMonth(month, year);
+    
+    // Add empty cells for days before the first day of the month
+    for (let i = 0; i < firstDay; i++) {
+      const emptyDay = document.createElement('div');
+      emptyDay.className = 'calendar-day empty';
+      calendarGrid.appendChild(emptyDay);
+    }
+    
+    // Add cells for each day of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayCell = document.createElement('div');
+      dayCell.className = 'calendar-day';
+      
+      const dayNumber = document.createElement('div');
+      dayNumber.className = 'day-number';
+      dayNumber.textContent = day;
+      dayCell.appendChild(dayNumber);
+      
+      // Check if there are any events on this day
+      const dayStr = day.toString().padStart(2, '0');
+      const monthStr = (month + 1).toString().padStart(2, '0');
+      const dateStr = `${year}-${monthStr}-${dayStr}`;
+      
+      const dayEvents = events.filter(event => event.date === dateStr);
+      
+      if (dayEvents.length > 0) {
+        dayCell.classList.add('has-events');
+        
+        const eventIndicator = document.createElement('div');
+        eventIndicator.className = 'event-indicator';
+        
+        // Add event details
+        dayEvents.forEach(event => {
+          const eventDiv = document.createElement('div');
+          eventDiv.className = 'event-title';
+          eventDiv.textContent = event.title;
+          eventIndicator.appendChild(eventDiv);
+        });
+        
+        dayCell.appendChild(eventIndicator);
+      }
+      
+      calendarGrid.appendChild(dayCell);
+    }
+    
+    // Render the list view for mobile
+    renderListView(month, year);
+  }
+  
+  // Function to render the list view (for mobile)
+  function renderListView(month, year) {
+    // Clear the list
+    calendarList.innerHTML = '';
+    
+    // Get all events for the current month
+    const monthStr = (month + 1).toString().padStart(2, '0');
+    const monthEvents = events.filter(event => event.date.startsWith(`${year}-${monthStr}`));
+    
+    // Sort events by date
+    monthEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+    
+    // Add each event to the list
+    monthEvents.forEach(event => {
+      const listItem = document.createElement('div');
+      listItem.className = 'calendar-list-item';
+      
+      const dateObj = new Date(event.date);
+      const dayOfMonth = dateObj.getDate();
+      
+      const listDate = document.createElement('div');
+      listDate.className = 'calendar-list-date';
+      listDate.textContent = `${months[month].substring(0, 3)} ${dayOfMonth}`;
+      
+      const listEvents = document.createElement('div');
+      listEvents.className = 'calendar-list-events';
+      
+      const listEvent = document.createElement('div');
+      listEvent.className = 'calendar-list-event';
+      listEvent.textContent = `${event.title} (${event.time})`;
+      
+      listEvents.appendChild(listEvent);
+      listItem.appendChild(listDate);
+      listItem.appendChild(listEvents);
+      
+      calendarList.appendChild(listItem);
+    });
+  }
+
+  // Handle month navigation
+  prevMonthBtn.addEventListener('click', () => {
+    currentMonthIndex--;
+    if (currentMonthIndex < 0) {
+      currentMonthIndex = 11;
+      currentYear--;
+    }
+    renderCalendar(currentMonthIndex, currentYear);
+  });
+
+  nextMonthBtn.addEventListener('click', () => {
+    currentMonthIndex++;
+    if (currentMonthIndex > 11) {
+      currentMonthIndex = 0;
+      currentYear++;
+    }
+    renderCalendar(currentMonthIndex, currentYear);
+  });
+
+  // Initial render
+  renderCalendar(currentMonthIndex, currentYear);
 });
