@@ -154,7 +154,7 @@
         
         /* Page Title Section */
         .page-title-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive.jpeg') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive.jpg') no-repeat center center;
         background-size: cover;
         color: var(--white);
         padding: 12rem 0;
@@ -168,7 +168,7 @@
         background-position: center top;
         padding: 10rem 0;
         /* You can also use a different image optimized for mobile if needed */
-         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive-mobile.jpg'); 
+         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive-mobile.jpeg'); 
     }
 }
 
@@ -363,7 +363,7 @@
     }
     
     .executive-image {
-        height: 180px;
+        height: 400px;
     }
     
     .executive-details {
@@ -381,8 +381,8 @@
         gap: 15px;
     }
     
-    .executive-image {
-        height: 170px;
+  .executive-image {
+        height: 500px;
     }
     
     .executive-details {
@@ -401,8 +401,8 @@
         padding: 0 5px;
     }
     
-    .executive-image {
-        height: 180px;
+  .executive-image {
+        height: 400px;
     }
     
     .section-title {
@@ -432,11 +432,10 @@
 }
 
 /* Additional Enhancements for Small Screens */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
     .executive-image {
         height: 200px;
     }
-    
     .executive-details {
         padding: 1rem;
     }
@@ -463,9 +462,7 @@
         border: 1px solid #ddd;
     }
     
-    .executive-image {
-        height: 200px;
-    }
+  
     
     .section-title:after {
         display: none;
