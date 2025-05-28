@@ -7,28 +7,31 @@
  });
  
  // Form Submission Handler
- const contactForm = document.getElementById('contactForm');
  
- contactForm.addEventListener('submit', (e) => {
-     e.preventDefault();
-     
-     // Form validation and submission logic would go here
-     // This is a placeholder for demonstration purposes
-     
-     // Get form values
-     const name = document.getElementById('name').value;
-     const email = document.getElementById('email').value;
-     const message = document.getElementById('message').value;
-     
-     // Simple validation
-     if (name && email && message) {
-         // Form submission logic would go here
-         alert('Thank you for your message! We will get back to you soon.');
-         contactForm.reset();
-     } else {
-         alert('Please fill in all required fields.');
-     }
- });
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const formData = new FormData(contactForm);
+
+  const response = await fetch("https://formspree.io/f/xzzrwyka", {
+    method: "POST",
+    headers: {
+      Accept: "application/json"
+    },
+    body: formData
+  });
+
+  if (response.ok) {
+    alert("Thank you for your message! We will get back to you soon.");
+    contactForm.reset();
+  } else {
+    alert("Oops! Something went wrong. Please try again.");
+  }
+});
+
+
  
  // Smooth Scrolling for Anchor Links
  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
