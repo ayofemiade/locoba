@@ -154,7 +154,7 @@
         
         /* Page Title Section */
         .page-title-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/executive.png') no-repeat center center;
         background-size: cover;
         color: var(--white);
         padding: 12rem 0;
@@ -162,7 +162,7 @@
         }
 
            /* Add media query for smaller screens */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
     .page-title-section {
         /* Change background position to show more center/top of image for portrait view */
         background-position: center top;
