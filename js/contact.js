@@ -15,7 +15,7 @@ contactForm.addEventListener('submit', async (e) => {
 
   const formData = new FormData(contactForm);
 
-  const response = await fetch("https://formspree.io/f/xzzrwyka", {
+  const response = await fetch("https://formspree.io/f/xeogyrky", {
     method: "POST",
     headers: {
       Accept: "application/json"
