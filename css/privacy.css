@@ -1,0 +1,418 @@
+ /* CSS Variables for Brand Colors */
+        :root {
+            --primary-red: #7E272F;
+            --dark-red: #5B1C22;
+            --black: #171719;
+            --dark-gray: #2E2E30;
+            --light-gray: #E6E6E6;
+            --soft-white: #F8F8F8;
+            --white: #FFFFFF;
+        }
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--soft-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-red);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--dark-red);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-red);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(126, 39, 47, 0.9), rgba(126, 39, 47, 0.9));
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Content Styles */
+        .content-section {
+            background-color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-nav {
+            background-color: var(--soft-white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .policy-nav h3 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .policy-nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .policy-nav ul li a {
+            display: block;
+            padding: 0.5rem;
+            color: var(--black);
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .policy-nav ul li a:hover {
+            background-color: var(--light-gray);
+        }
+
+        .policy-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
+        }
+
+        .policy-section h2 {
+            color: var(--primary-red);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-top: 2rem;
+        }
+
+        .policy-section h3 {
+            color: var(--dark-red);
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .policy-section ul, .policy-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background-color: var(--soft-white);
+            border-left: 4px solid var(--primary-red);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .contact-info a:hover {
+            color: var(--light-gray);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        .footer-about p {
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--light-gray);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--dark-gray);
+            text-align: center;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .policy-nav ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .policy-content {
+                padding: 0 0.5rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.5rem;
+            }
+        }

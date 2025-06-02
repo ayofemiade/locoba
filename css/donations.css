@@ -145,7 +145,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/donation.JPG') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/donation.jpg') no-repeat center center;
             background-size: cover;
             color: var(--white);
             padding: 6rem 0;
@@ -159,7 +159,7 @@
         background-position: center top;
         padding: 2rem 0;
         /* You can also use a different image optimized for mobile if needed */
-         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/donation-mobile.JPG'); 
+         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../image/donation-mobile.jpg'); 
     }
 }
 
