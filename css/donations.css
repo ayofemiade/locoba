@@ -152,6 +152,20 @@
             text-align: center;
         }
 
+        .video-wrapper {
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+      .centered-text {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+
            /* Add media query for smaller screens */
 @media screen and (max-width: 380px) {
     .hero {

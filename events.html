@@ -107,7 +107,7 @@
                 <!-- Event 2 -->
                 <div class="event-card" data-type="reunion data-location="campus">
                     <div class="event-image">
-                        <img src="image/founder.jpg" loading="lazy" height="200" width="370" alt="Event Image">
+                        <img src="image/founder-day-lecture.jpg" loading="lazy" height="200" width="370" alt="Event Image">
                         <div class="event-date">Aug 2, 2025</div>
                         <div class="event-category">Reunion</div>
                     </div>
@@ -122,23 +122,38 @@
                     </div>
                 </div>
                 
-                <!-- Event 3 -->
-                <div class="event-card" data-type="social" data-location="">
+                <!-- Event 3 - Lagos Town Hall (Featured) -->
+                <div class="event-card featured" data-type="social" data-location="">
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured Event
+                    </div>
                     <div class="event-image">
-                        <img src="image/lagos.jpg" loading="lazy" height="200" width="370" alt="Event Image">
-                <div class="event-date">Aug 2, 2025</div>
-                <div class="event-category">Reunion</div>
-            </div>
-            <div class="event-details">
-                <h3 class="event-title">Lagos branch Town hall meeting</h3>
-                <div class="event-meta">
-                    <p class="event-location"><i class="fas fa-map-marker-alt"></i> TBA</p>
-                    <p class="event-time"><i class="far fa-clock"></i> TBA</p>
+                        <img src="image/lagos.jpg" loading="lazy" height="200" width="370" alt="Lagos Town Hall Meeting">
+                        <div class="event-date">Aug 2, 2025</div>
+                        <div class="event-category">Town Hall</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title">Founder's Day Celebration</h3>
+                        <div class="registration-status">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Registration Open</span>
+                        </div>
+                        <div class="event-meta">
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Lagos</p>
+                            <p class="event-time"><i class="far fa-clock"></i> 12pm</p>
+                        </div>
+                        <p class="event-description">An interactive session for alumni to discuss local initiatives and association updates. Your voice matters!</p>
+                        <div class="event-link">
+                            <a href="#" class="view-flyer-btn" onclick="showFlyer('town-hall')">
+                                <i class="fas fa-image"></i> View Flyer
+                            </a>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWGAO_yTyxu4b_B7IlI1fGQahcpg9IbvQaJmAjA1RlhPDg3A/viewform?usp=header" 
+                               class="event-button" target="_blank">
+                                <i class="fas fa-user-plus"></i> Register Now
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <p class="event-description">An interactive session for Lagos-based alumni to discuss local initiatives and association updates.</p>
-            
-            </div>
-        </div>
 
 
         <!-- Event 4 -->
@@ -241,10 +256,10 @@
         </a>
         
         <!-- Gallery Item 4 -->
-        <a href="https://photos.app.goo.gl/YLaZSa3pYHFmGfuY6" class="gallery-item" data-category="social">
-            <img src="image/event1.jpg" loading="lazy" alt="Anniversary">
+        <a href="https://drive.google.com/drive/folders/1tKaPbn5YVd4WwnLXbM5uky4e1Ed_KNx1?usp=drive_link" class="gallery-item" data-category="social">
+            <img src="image/lodon.jpg" loading="lazy" alt="Anniversary">
             <div class="gallery-caption">
-                <h4 class="gallery-title">Anniversary</h4>
+                <h4 class="gallery-title">London Branch Christmas party</h4>
                 <p class="gallery-date"></p>
             </div>
         </a>
@@ -277,11 +292,11 @@
         </a>
         
         <!-- Gallery Item 8 -->
-        <a href="https://photos.app.goo.gl/6oCS83dgv681Y1op8" class="gallery-item" data-category="social">
-            <img src="image/event3.jpg" loading="lazy" alt="Dinner">
+        <a href="https://drive.google.com/drive/folders/1ju09wsLm2C6GLYzny5kyvsyO6SZge3-Z?usp=drive_link" class="gallery-item" data-category="social">
+            <img src="image/visit.jpg" loading="lazy" alt="Dinner">
             <div class="gallery-caption">
-                <h4 class="gallery-title">Awards</h4>
-                <p class="gallery-date"></p>
+                <h4 class="gallery-title">Visit to the Emeritus Archbishop Job Alaba</h4>
+                <p class="gallery-date">25th of January, 2025</p>
             </div>
         </a>
     </div>
@@ -448,7 +463,17 @@
 </div>
 </footer>
 
+<!-- Flyer Modal -->
+<div id="flyerModal" class="flyer-modal">
+  <div class="flyer-modal-content">
+    <span class="close-modal" onclick="closeFlyer()">&times;</span>
+    <img id="flyerImage" src="" alt="Flyer Preview">
+  </div>
+</div>
+
+
 <script src="js/events.js"></script>
+
 
 </body>
 </html>

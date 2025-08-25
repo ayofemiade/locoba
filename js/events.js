@@ -6,6 +6,40 @@ mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
+
+ function showFlyer(eventType) {
+            const modal = document.getElementById('flyerModal');
+            const flyerImage = document.getElementById('flyerImage');
+            
+            // You can replace these with actual flyer image paths
+            const flyers = {
+                
+                'town-hall': 'image/founder-program.jpg'
+            };
+            
+            flyerImage.src = flyers[eventType] || 'image/founder-program.jpg';
+            flyerImage.alt = `${eventType} Flyer`;
+            modal.style.display = 'block';
+        }
+
+        function closeFlyer() {
+            document.getElementById('flyerModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('flyerModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeFlyer();
+            }
+        });
 // Event Modal
 /*
 const eventModal = document.getElementById('eventModal');

@@ -45,72 +45,18 @@
         </div>
     </section>
 
-    <!-- Membership Form Section -->
-    <section class="membership-section" id="membership-form">
-        <div class="container">
-            <h2 class="section-title">Membership Application</h2>
-            
-            <div class="form-container">
-                <form id="membershipForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fullName" class="required-label">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                            <div class="error-message">Please enter your full name</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="required-label">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                            <div class="error-message">Please enter a valid email address</div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone" class="required-label">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                            <div class="error-message">Please enter a valid phone number</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="graduationYear" class="required-label">Graduation Year</label>
-                            <select id="graduationYear" name="graduationYear" required>
-                                <option value="">Select Year</option>
-                                <script>
-                                    const currentYear = new Date().getFullYear();
-                                    for (let year = currentYear; year >= 1950; year--) {
-                                        document.write(`<option value="${year}">${year}</option>`);
-                                    }
-                                </script>
-                            </select>
-                            <div class="error-message">Please select your graduation year</div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="occupation" class="required-label">Current Occupation</label>
-                        <input type="text" id="occupation" name="occupation" required>
-                        <div class="error-message">Please enter your current occupation</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="required-label">Why do you want to join?</label>
-                        <textarea id="message" name="message" required></textarea>
-                        <div class="error-message">Please tell us why you want to join</div>
-                    </div>
-                    
-                    <div class="form-note">
-                        Fields marked with <span>*</span> are required
-                    </div>
-                    
-                    <div class="submit-container">
-                        <button type="submit" class="btn btn-primary btn-submit">Submit Application</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+   <section class="membership-section" id="membership-form">
+  <div class="container">
+    <h2 class="section-title">Become a Member</h2>
+    <p class="section-subtitle">Ready to join our community of distinguished Old Boys?</p>
+    
+    <div class="submit-container">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQOSMERJvjPUAclWhoVPRB17sd8B7_C5PsgrUmpnOqaAfIUQ/viewform?usp=header" class="btn btn-primary btn-submit" target="_blank" rel="noopener">
+        Fill Membership Form
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- Benefits Section -->
     <section class="benefits-section">
